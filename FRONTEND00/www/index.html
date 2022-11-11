@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script src="scripts/script.js"></script>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat%22%3E">
     <title>Smartphone Store</title>
@@ -25,6 +26,25 @@
                 <h1>ABACATE</h1>
             </div>
         </header>
+
+        <!-- A button to open the popup form -->
+        <button class="open-button" onclick="openForm()">Login</button>
+
+        <!-- The form -->
+        <div class="form-popup" id="myForm">
+        <form action="/action_page.php" class="form-container">
+            <h1>Login</h1>
+
+            <label for="email"><b>Email</b></label>
+            <input type="text" placeholder="Enter Email" name="email" required>
+
+            <label for="psw"><b>Password</b></label>
+            <input type="password" placeholder="Enter Password" name="psw" required>
+
+            <button type="submit" class="btn">Login</button>
+            <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+        </form>
+        </div>
 
         <div id="servicos" class="w3-opacity w3-justify w3-padding-64">
             <h1><b style="color:white;">Serviços</b></h1>
@@ -77,6 +97,9 @@
         <div id="suporte" class="w3-opacity w3-justify w3-padding-64">
             <h1><b style="color:white;">Suporte</b></h1>
         </div>
+
+
+        
     </div>
 </body>
 </html>
