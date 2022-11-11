@@ -3,11 +3,11 @@
 A fazer:
 
 - Mockup (v)
-- Menu ()
-- Header ()
+- Menu (v)
+- Header (v)
 - Nav ()
 - Footer ()
-- Pop-up de login/sign-in ()
+- Pop-up de login/sign-in (v)
 - Responsividade ()
 
 A ter em conta:
