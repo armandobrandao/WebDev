@@ -13,7 +13,7 @@
 <body>
     <nav>
         <div class="topnav">
-            <a href="#home"></a>
+            <a href="#home">Home</a>
             <a href="#servicos">Serviços</a>
             <a href="#produtos">Produtos</a>
             <a href="#sobrenos">Sobre Nós</a>
@@ -27,35 +27,32 @@
             </div>
         </header>
 
-        <!-- A button to open the popup form -->
         <button class="open-button" onclick="openForm()">Login</button>
-
-        <!-- The form -->
         <div class="form-popup" id="myForm">
-        <form action="/action_page.php" class="form-container">
-            <h1>Login</h1>
+            <form action="/action_page.php" class="form-container">
+                <h1>Login</h1>
 
-            <label for="email"><b>Email</b></label>
-            <input type="text" placeholder="Enter Email" name="email" required>
+                <label for="email"><b>Email</b></label>
+                <input type="text" placeholder="Enter Email" name="email" required>
 
-            <label for="psw"><b>Password</b></label>
-            <input type="password" placeholder="Enter Password" name="psw" required>
+                <label for="psw"><b>Password</b></label>
+                <input type="password" placeholder="Enter Password" name="psw" required>
 
-            <button type="submit" class="btn">Login</button>
-            <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
-        </form>
+                <button type="submit" class="btn">Login</button>
+                <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+            </form>
         </div>
 
-        <div id="servicos" class="w3-opacity w3-justify w3-padding-64">
-            <h1><b style="color:white;">Serviços</b></h1>
+        <div id="servicos" class="w3-justify w3-padding-64">
+            <h1><b>Serviços</b></h1>
         </div>
 
-        <div id="produtos" class="w3-opacity w3-justify w3-padding-64">
-            <h1><b style="color:white;">Produtos</b></h1>
+        <div id="produtos" class="w3-justify w3-padding-64">
+            <h1><b>Produtos</b></h1>
         </div>
 
-        <div id="sobrenos" class="w3-opacity w3-justify w3-padding-64">
-            <h1><b style="color:white;">Sobre Nós</b></h1>
+        <div id="sobrenos" class=" w3-justify w3-padding-64">
+            <h1><b>Sobre Nós</b></h1>
             <br>
             <b>Armando Brandão</b>
             <br><br>
@@ -94,12 +91,15 @@
             <li>Estudante de Engenharia Informática, na UAL</li>
         </div>
 
-        <div id="suporte" class="w3-opacity w3-justify w3-padding-64">
-            <h1><b style="color:white;">Suporte</b></h1>
+        <div id="suporte" class="w3-justify w3-padding-64">
+            <h1><b>Suporte</b></h1>
+            <h3>Entre em contacto conosco via email, telefone ou visite-nos.</h3>
+            <br>
+            <p>email@email.vesqui</p>
+            <p>91219129</p>
+            <p>Rua do Armando, Vesqui Town 12
+            <p>1950-011 Chelas City</p>
         </div>
-
-
-        
     </div>
 </body>
 </html>
