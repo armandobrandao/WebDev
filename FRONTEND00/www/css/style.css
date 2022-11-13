@@ -56,15 +56,15 @@ body {
   position: fixed;
   bottom: 0;
   right: 15px;
-  border: 3px solid #f1f1f1;
+  border: 3px solid rgb(82, 82, 82);
   z-index: 9;
 }
 
 .form-container {
   max-width: 300px;
   padding: 10px;
-  background-color: white;
-  color: black;
+  background-color: rgb(131, 131, 131);
+  color: white;
 }
 
 .form-container input[type=text], .form-container input[type=password] {
@@ -72,7 +72,7 @@ body {
   padding: 15px;
   margin: 5px 0 22px 0;
   border: none;
-  background: #f1f1f1;
+  background: rgb(82, 82, 82);
 }
 
 .form-container input[type=text]:focus, .form-container input[type=password]:focus {
@@ -82,6 +82,7 @@ body {
 
 .form-container .btn {
   background-color: #04AA6D;
+  transition: 0.3s;
   color: white;
   padding: 16px 20px;
   border: none;
@@ -93,6 +94,7 @@ body {
 
 .form-container .cancel {
   background-color: red;
+  transition: 0.3s;
 }
 
 .form-container .btn:hover, .open-button:hover {
