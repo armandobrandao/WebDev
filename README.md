@@ -8,9 +8,12 @@ A fazer:
 - Nav (v)
 - Footer (v)
 - Pop-up de login/sign-in (v)
-- Re-size das imagens ()
-- Meter o site mais bonito ()
-- Responsividade ()
+- Re-size das imagens (v)
+- Meter o site mais bonito (v)
+- Responsividade (v)
+- Adicionar um icon ()
+- Criar um logo e metê-lo ()
+- Meter o botão de log-in na barra de cima ()
 
 A ter em conta:
 
