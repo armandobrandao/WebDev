@@ -5,9 +5,11 @@ A fazer:
 - Mockup (v)
 - Menu (v)
 - Header (v)
-- Nav ()
-- Footer ()
+- Nav (v)
+- Footer (v)
 - Pop-up de login/sign-in (v)
+- Re-size das imagens ()
+- Meter o site mais bonito ()
 - Responsividade ()
 
 A ter em conta:
