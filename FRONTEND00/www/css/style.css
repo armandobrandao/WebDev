@@ -111,3 +111,47 @@ body {
   color: white;
   text-align: center;
 }
+.column {
+  float: left;
+  width: 25%;
+  padding: 5px;
+}
+.columnleft {
+  float: left;
+  width: 50%;
+  padding: 5px;
+}
+.columnright {
+  float: right;
+  width: 50%;
+  padding: 5px;
+}
+
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+hr.new2 {
+  border: 10px solid #1d1d1d;
+  border-radius: 4px;
+}
+
+hr.new1 {
+  border: 10px solid #1d1d1d;
+  border-radius: 10px;
+}
+
+.imagebox1{
+  background-color: rgb(82, 82, 82);
+  outline: 3px solid #1d1d1d;
+  border: 3px solid #1d1d1d;
+  padding: 5px 10px;
+}
+
+.imagebox2{
+  outline: 3px solid #1d1d1d;
+  border: 3px solid #1d1d1d;
+  padding: 5px 10px;
+}
