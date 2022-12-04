@@ -5,7 +5,7 @@ html {
 body {
   font-family: Arial, Helvetica, sans-serif;
   margin: 0;
-  background-color: rgb(185, 185, 185);
+  background-color: rgb(224, 187, 107);
   color: rgb(56, 56, 56);
 }
 
@@ -40,16 +40,16 @@ body {
 }
 
 .open-button {
-  background-color: rgba(151, 141, 141, 0.76); 
+  background-color: rgba(107, 60, 60, 0.76); 
   color: white;
   padding: 16px 10px;
   border: none;
   cursor: pointer;
   opacity: 0.8;
   position: fixed;
-  top: 56px;
+  top: 54px;
   right: 0px;
-  width: 280px;
+  width: 150px;
   transition: 0.3s;
 }
 
@@ -57,7 +57,7 @@ body {
   display: none;
   position: fixed;
   right: 15px;
-  border: 3px solid rgb(82, 82, 82);
+  border: 3px solid rgb(131, 131, 131);
   z-index: 9;
   top: 55px;
   right: 0px;
@@ -75,7 +75,7 @@ body {
   padding: 15px;
   margin: 5px 0 22px 0;
   border: none;
-  background: rgb(131, 131, 131);
+  background: rgb(56, 56, 56);
 }
 
 .form-container input[type=text]:focus, .form-container input[type=password]:focus {
@@ -120,12 +120,12 @@ body {
 }
 .columnleft {
   float: left;
-  width: 50%;
+  width: 47%;
   padding: 5px;
 }
 .columnright {
   float: right;
-  width: 50%;
+  width: 47%;
   padding: 5px;
 }
 
@@ -135,14 +135,10 @@ body {
   display: table;
 }
 
-hr.new2 {
-  border: 10px solid #1d1d1d;
-  border-radius: 4px;
-}
-
 hr.new1 {
-  border: 10px solid #1d1d1d;
-  border-radius: 10px;
+  border: 10px solid rgb(241, 185, 62);
+  outline: 2px solid rgb(49, 22, 22);
+  border-radius: 4px;
 }
 
 .imagebox1{
@@ -153,8 +149,8 @@ hr.new1 {
 }
 
 .imagebox2{
-  outline: 3px solid #1d1d1d;
-  border: 3px solid #1d1d1d;
+  border: 10px solid rgb(241, 185, 62);
+  outline: 2px solid rgb(49, 22, 22);
   padding: 5px 10px;
 }
 
@@ -162,6 +158,10 @@ hr.new1 {
 }
 
 .zoom:hover{
-  transform: scale(1.25);
+  transform: scale(1.10);
 }
 
+.aligned {
+  display: flex;
+  align-items: center;
+}
