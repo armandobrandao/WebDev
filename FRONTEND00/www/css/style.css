@@ -9,6 +9,8 @@ body {
   color: rgb(56, 56, 56);
 }
 
+
+
 .topnav {
   background-color: #1d1d1d;
   position: fixed;
@@ -155,3 +157,11 @@ hr.new1 {
   border: 3px solid #1d1d1d;
   padding: 5px 10px;
 }
+
+.zoom{
+}
+
+.zoom:hover{
+  transform: scale(1.25);
+}
+
