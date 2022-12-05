@@ -9,8 +9,6 @@ body {
   color: rgb(56, 56, 56);
 }
 
-
-
 .topnav {
   background-color: #1d1d1d;
   position: fixed;
@@ -47,7 +45,7 @@ body {
   cursor: pointer;
   opacity: 0.8;
   position: fixed;
-  top: 54px;
+  top: 0px;
   right: 0px;
   width: 150px;
   transition: 0.3s;
@@ -113,16 +111,19 @@ body {
   color: white;
   text-align: center;
 }
+
 .column {
   float: left;
   width: 25%;
   padding: 5px;
 }
+
 .columnleft {
   float: left;
   width: 47%;
   padding: 5px;
 }
+
 .columnright {
   float: right;
   width: 47%;
@@ -155,13 +156,23 @@ hr.new1 {
 }
 
 .zoom{
+  transition: 0.5s;
 }
 
 .zoom:hover{
   transform: scale(1.10);
+  transition: 0.5s;
 }
 
 .aligned {
   display: flex;
   align-items: center;
+}
+
+.prodbar {
+  background-color: #1d1d1d;
+  width: 100%;
+  transition: 0.3s;
+  padding: 17px 10px;
+  color: white;
 }

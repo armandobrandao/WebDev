@@ -1,19 +1,13 @@
 # Loja de venda e reparação de telemóveis (tema em discussão)
 
+## ATENÇÃO
+
 A fazer:
 
-- Mockup (v)
-- Menu (v)
-- Header (v)
-- Nav (v)
-- Footer (v)
-- Pop-up de login/sign-in (v)
-- Re-size das imagens (v)
-- Meter o site mais bonito (v)
-- Responsividade (v)
-- Adicionar um icon ()
-- Criar um logo e metê-lo ()
-- Meter o botão de log-in na barra de cima ()
+- Fazer um css para cada botão da barra dos produtos ()
+- Meter o Login a funcionar ()
+- Fazer os botões funcionarem ()
+- Verificar responsividade ()
 
 A ter em conta:
 
