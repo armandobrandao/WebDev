@@ -47,20 +47,19 @@ function login() {
                 document.getElementById("registar").style.display = "none";
                 document.getElementById("login").style.display = "none"; 
                 document.getElementById("logout").style.display = "inline"; 
-                document.getElementById("prodbar").style.display = "inline";
-                document.getElementById("criar").style.display = "inline";
-                document.getElementById("apagar").style.display = "inline";
+                document.getElementById("inserir").style.display = "inline";
+                document.getElementById("eliminar").style.display = "inline";
                 document.getElementById("procurar").style.display = "inline";
                 userAutenticado = us;
                 listar();
                 return;
             } else {
+                document.getElementById("produtos").style.display = "block";
                 document.getElementById("registar").style.display = "none";
                 document.getElementById("login").style.display = "none";
                 document.getElementById("logout").style.display = "inline";
-                document.getElementById("main").style.display = "block";
-                document.getElementById("criar").style.display = "none";
-                document.getElementById("apagar").style.display = "none";
+                document.getElementById("inserir").style.display = "none";
+                document.getElementById("eliminar").style.display = "none";
                 document.getElementById("procurar").style.display = "block";
                 userAutenticado = us;
                 listar();

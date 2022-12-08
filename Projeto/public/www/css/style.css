@@ -1,6 +1,4 @@
-/*#produtos {display:none}*/
-.prodbar {display:none}
-
+#produtos {display:none}
 
 html {
   scroll-behavior: smooth;
@@ -42,7 +40,21 @@ body {
   color: white;
 }
 
-.open-button {
+.login {
+  background-color: rgba(107, 60, 60, 0.76); 
+  color: white;
+  padding: 16px 10px;
+  border: none;
+  cursor: pointer;
+  opacity: 0.8;
+  position: absolute;
+  top: 0px;
+  right: 150px;
+  width: 150px;
+  transition: 0.3s;
+}
+
+.register {
   background-color: rgba(107, 60, 60, 0.76); 
   color: white;
   padding: 16px 10px;
@@ -106,7 +118,11 @@ body {
 */
 
 
-.form-container .btn:hover, .open-button:hover {
+.login:hover {
+  opacity: 1;
+}
+
+.register:hover {
   opacity: 1;
 }
 
