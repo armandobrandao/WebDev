@@ -20,12 +20,12 @@
             <a href="#sobrenos">Sobre Nós</a>
             <a href="#suporte">Suporte</a>
             <img src="images/banana-pixel-art-png.png" alt="banana" width="50px" height="50px">
+            <button class="open-button" onclick="login()">Login</button>
         </div>
     </nav>
     <div class="content" style="text-align:center; padding: 300px;">
-        <button class="open-button" onclick="openForm()">Login</button>
         <div class="form-popup" id="myForm">
-            <form action="/action_page.php" class="form-container">
+            <!--<form action="/action_page.php" class="form-container">
                 <h1>Login</h1>
 
                 <label for="email"><b>Email</b></label>
@@ -37,6 +37,7 @@
                 <button type="submit" class="btn">Login</button>
                 <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
             </form>
+            -->
         </div>
 
         <header>
@@ -111,7 +112,7 @@
                 </ul>
                 <p>É também possível adquirir o serviço de instalação das novas peças, sendo 50€ independentemente do dispositivo.</p>
                 <p>Caso queira o nosso serviço de formatação do dispositivo, o preço é global, sendo 30€.</p>         
-                
+            </div>
         </div>
             <br>
             <br>
@@ -123,7 +124,7 @@
         </center>
             <br>
 
-            <div class="prodbar">
+            <div class="prodbar" id="main">
                 <button id="procurar" onclick="procurar()">Procurar</button>
                 <button id="inserir">Inserir</button>
                 <button id="eliminar" onclick="eliminar()">Eliminar</button>
@@ -207,7 +208,7 @@
             <hr class="new1">
             <div class="row">
                 <div class="column">
-                  <img src="images/batatinha.jpg" alt="andre" style="width:100%", height="156px">
+                  <img src="images/batatinha.jpg" alt="andre" style="width:100%">
                 </div>
                 <div class="column">
                   <img src="images/wheezer.jpg" alt="Armando" style="width:100%">
@@ -216,7 +217,7 @@
                   <img src="images/jamal.jpg" alt="silva" style="width:100%">
                 </div>
                 <div class="column">
-                    <img src="images/vesqui.jpg" alt="vesqui" style="width:100%", height="156px">
+                    <img src="images/vesqui.jpg" alt="vesqui" style="width:100%">
                   </div>
             </div>
             <hr class="new1">

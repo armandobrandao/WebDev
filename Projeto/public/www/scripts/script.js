@@ -43,10 +43,11 @@ function login() {
     for (us of utilizadores) {
         if (us.nome === user && us.senha === pass) {
             if (us.nome === "admin" && us.senha === "admin") {
+                document.getElementById("produtos").style.display = "block";
                 document.getElementById("registar").style.display = "none";
                 document.getElementById("login").style.display = "none"; 
                 document.getElementById("logout").style.display = "inline"; 
-                document.getElementById("main").style.display = "block";
+                document.getElementById("prodbar").style.display = "inline";
                 document.getElementById("criar").style.display = "inline";
                 document.getElementById("apagar").style.display = "inline";
                 document.getElementById("procurar").style.display = "inline";

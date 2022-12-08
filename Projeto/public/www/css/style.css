@@ -1,3 +1,7 @@
+/*#produtos {display:none}*/
+.prodbar {display:none}
+
+
 html {
   scroll-behavior: smooth;
 }
@@ -45,13 +49,14 @@ body {
   border: none;
   cursor: pointer;
   opacity: 0.8;
-  position: fixed;
+  position: absolute;
   top: 0px;
   right: 0px;
   width: 150px;
   transition: 0.3s;
 }
 
+/*
 .form-popup {
   display: none;
   position: fixed;
@@ -98,6 +103,8 @@ body {
   background-color: red;
   transition: 0.3s;
 }
+*/
+
 
 .form-container .btn:hover, .open-button:hover {
   opacity: 1;
