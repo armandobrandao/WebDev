@@ -1,4 +1,4 @@
-# Loja de venda e reparação de telemóveis (tema em discussão)
+# Loja de venda e reparação de telemóveis
 
 ## ATENÇÃO
 
@@ -8,6 +8,10 @@ A fazer:
 - Meter o Login a funcionar ()
 - Fazer os botões funcionarem ()
 - Verificar responsividade ()
+- Esconder o botão de Inserir e Remover quando o admin não dá login ()
+- Esconder o botão de Registar e de Login após o Login ()
+- Criar botão de Logout ()
+
 
 A ter em conta:
 
