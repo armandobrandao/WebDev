@@ -201,3 +201,24 @@ hr.new1 {
   padding: 17px 10px;
   color: white;
 }
+
+#procurar {
+  position: relative;
+  background-color: #1d1d1d;
+  color: white;
+  text-align: center;
+}
+
+#inserir {
+  position: relative;
+  background-color: #1d1d1d;
+  color: white;
+  text-align: center;
+}
+
+#eliminar {
+  position: relative;
+  background-color: #1d1d1d;
+  color: white;
+  text-align: center;
+}

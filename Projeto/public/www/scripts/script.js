@@ -41,8 +41,8 @@ function login() {
     let user = prompt("Nome de utilizador?");
     let pass = prompt("Senha?");
     for (us of utilizadores) {
-        if (us.nome === user && us.senha === pass) {
-            if (us.nome === "admin" && us.senha === "admin") {
+        if (us.nome == user && us.senha == pass) {
+            if (us.nome == admin.nome && us.senha == admin.senha) {
                 document.getElementById("produtos").style.display = "block";
                 document.getElementById("registar").style.display = "none";
                 document.getElementById("login").style.display = "none"; 
