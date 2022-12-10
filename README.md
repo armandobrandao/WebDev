@@ -4,14 +4,9 @@
 
 A fazer:
 
-- Fazer um css para cada botão da barra dos produtos ()
-- Meter o Login a funcionar ()
 - Fazer os botões funcionarem ()
 - Verificar responsividade ()
 - Esconder o botão de Inserir e Remover quando o admin não dá login ()
-- Esconder o botão de Registar e de Login após o Login ()
-- Criar botão de Logout ()
-
 
 A ter em conta:
 

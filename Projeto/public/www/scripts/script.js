@@ -75,7 +75,7 @@ function logout() {
     document.getElementById("logout").style.display = "none";
     document.getElementById("login").style.display = "inline";
     document.getElementById("registar").style.display = "inline";
-    document.getElementById("main").style.display = "none";
+    document.getElementById("produtos").style.display = "none";
 }
 
 function registar() {
