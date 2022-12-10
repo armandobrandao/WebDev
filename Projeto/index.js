@@ -77,6 +77,7 @@ app.listen(PORT, () => {
     console.log(`Server is running on ${PORT}`);
 });
 
+/*
 app.post("/submit-form", (req, res) => {
     let product = {
         name: req.body.name,
@@ -89,3 +90,4 @@ app.post("/submit-form", (req, res) => {
     }
     res.send("Working");
 });
+*/

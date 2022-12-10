@@ -1,296 +1,303 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="css/style.css">
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat%22%3E">
-    <link rel="icon" type="image/x-icon" href="images/monkeyicon.png">
-    
-    <title>Monkey Business</title>
-</head>
-<body>
-    <nav>
-        <div class="topnav">
-            <a href="#home">Home</a>
-            <a href="#servicos">Serviços</a>
-            <a href="#produtos">Produtos</a>
-            <a href="#sobrenos">Sobre Nós</a>
-            <a href="#suporte">Suporte</a>
-            <img src="images/banana-pixel-art-png.png" alt="banana" width="50px" height="50px">
-            <button id="login" class="login" onclick="login()">Login</button>
-            <button id="registar" class="registar" onclick="registar()">Registar</button>
-            <button id="logout" class="logout" onclick="logout()">Logout</button>
-        </div>
-    </nav>
-    <div class="content" style="text-align:center; padding: 300px;">
-        <!--
-        <div class="form-popup" id="myForm">
-                <form action="/action_page.php" class="form-container">
-                <h1>Login</h1>
-
-                <label for="email"><b>Email</b></label>
-                <input type="text" placeholder="Enter Email" name="email" required>
-
-                <label for="psw"><b>Password</b></label>
-                <input type="password" placeholder="Enter Password" name="psw" required>
-
-                <button type="submit" class="btn">Login</button>
-                <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
-            </form>
-            
-        </div>
-        -->
-        <header>
-            <div id="home" class="w3-justify w3-padding-64">
-                <center>
-                <h1><b>Monkey Business</b></h1>
-                <br>
-                <img src="images/monkeylogo.png" width="200px" height:auto;>
-                </center>
-                <br><br><br><br><br><br><br><br><br><br>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat%22%3E">
+        <link rel="icon" type="image/x-icon" href="images/monkeyicon.png">
+        <script src="scripts/script.js"></script>
+        <title>Monkey Business</title>
+    </head>
+    <body>
+        <nav>
+            <div class="topnav">
+                <a href="#home">Home</a>
+                <a href="#servicos">Serviços</a>
+                <a href="#produtos">Produtos</a>
+                <a href="#sobrenos">Sobre Nós</a>
+                <a href="#suporte">Suporte</a>
+                <img src="images/banana-pixel-art-png.png" alt="banana" width="50px" height="50px">
+                <button id="login" class="login" onclick="login()">Login</button>
+                <button id="registar" class="registar" onclick="registar()">Registar</button>
+                <button id="logout" class="logout" onclick="logout()">Logout</button>
             </div>
-        </header>
+        </nav>
+        <div class="content" style="text-align:center; padding: 300px;">
+            <!--
+            <div class="form-popup" id="myForm">
+                    <form action="/action_page.php" class="form-container">
+                    <h1>Login</h1>
 
-        <div id="servicos" class="w3-justify w3-padding-64">
-            <hr class="new1">
-            <center><h1><b>Serviços</b></h1>
-            <br>
-            <div class="imagebox1">
-            <img src="images/monkeyonthephone.jpg" style="max-width:100%; height:auto;">
-             </div>
-           </center>
-            <br><br>
-            <p>A nossa empresa disponibiliza vários serviços relativos a telemóveis, tais como:</p>
-            <ul>
-                <li>Retoma de telemóveis.</li>
-                <li>Reparação de telemóveis.</li>
-                <li>Fornecimento de peças de telemóveis.</li>
-                <li>Formatação de telemóveis.</li>
-                <li>Instalação de novas peças.</li>
-            </ul>
-            <p>Futuramente haverão novos serviços relativos a produtos informáticos, tais como instalação de sistemas operativos e reparação de computadores.</p>
-            <br>
-            <center>
-            <hr class="new1">
-            <br>
-            <h2><b>Preços</b></h2>
-            </center>
-            <br>
-            <div class="row">
-                <div class="columnleft">
-                    <img src="images/bananaphonegif2.gif" alt="bananaphone" height="350px">
+                    <label for="email"><b>Email</b></label>
+                    <input type="text" placeholder="Enter Email" name="email" required>
+
+                    <label for="psw"><b>Password</b></label>
+                    <input type="password" placeholder="Enter Password" name="psw" required>
+
+                    <button type="submit" class="btn">Login</button>
+                    <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+                </form>
+                
+            </div>
+            -->
+            <header>
+                <div id="home" class="w3-justify w3-padding-64">
+                    <center>
+                        <h1><b>Monkey Business</b></h1>
+                        <br>
+                        <img src="images/monkeylogo.png" width="200px" height:auto;>
+                    </center>
+                    <br><br><br><br><br><br><br><br><br><br>
                 </div>
-                <div class="columnright imagebox2">
-                    <h4><b>Reparação e Formatação</b></h4>
-                    <p>Os preços de reparações variam consoante o telemóvel em questão, devido às diferentes peças e à acessibilidade ao interior do telemóvel.<br>
-                        Também se tem em conta a complexidade da estrutura do telemóvel que deseja reparar.
+            </header>
+
+            <div id="servicos" class="w3-justify w3-padding-64">
+                <hr class="new1">
+                <center>
+                    <h1><b>Serviços</b></h1>
+                    <br>
+                    <div class="imagebox1">
+                        <img src="images/monkeyonthephone.jpg" style="max-width:100%; height:auto;">
+                    </div>
+                </center>
+                <br><br>
+                <p>A nossa empresa disponibiliza vários serviços relativos a telemóveis, tais como:</p>
+                <ul>
+                    <li>Retoma de telemóveis.</li>
+                    <li>Reparação de telemóveis.</li>
+                    <li>Fornecimento de peças de telemóveis.</li>
+                    <li>Formatação de telemóveis.</li>
+                    <li>Instalação de novas peças.</li>
+                </ul>
+                <p>Futuramente haverão novos serviços relativos a produtos informáticos, tais como instalação de sistemas operativos e reparação de computadores.</p>
+                <br>
+                <center>
+                    <hr class="new1">
+                    <br>
+                    <h2><b>Preços</b></h2>
+                </center>
+                <br>
+                <div class="row">
+                    <div class="columnleft">
+                        <img src="images/bananaphonegif2.gif" alt="bananaphone" height="350px">
+                    </div>
+                    <div class="columnright imagebox2">
+                        <h4><b>Reparação e Formatação</b></h4>
+                        <p>Os preços de reparações variam consoante o telemóvel em questão, devido às diferentes peças e à acessibilidade ao interior do telemóvel.<br>
+                            Também se tem em conta a complexidade da estrutura do telemóvel que deseja reparar.
+                        </p>
+                        <ul>
+                            <li><b>Monkey Phone</b> - 75€ - 125€</li>
+                            <li><b>iMonkey</b> - 100€ - 200€</li>
+                            <li><b>MonkeyMi</b> - 50€ - 100€</li>
+                            <li><b>Monkia</b> - 50€ - 100€</li>
+                            <li><b>Monkeysung</b> - 100€ - 200€</li>
+                        </ul>
+                        <br>
+                    </div>
+                </div>
+                <br><br>
+                <div class="imagebox2">
+                    <h4><b>Peças</b></h4>
+                    <p>
+                        Na Monkey Business, o cliente poderá encontrar as peças que necessita para a reparação do telemóvel.<br>
+                        Obviamente, o preço de cada peça depende do telemóvel que o cliente possui contudo, o price range pouco varia de telemóvel para telemóvel.    
                     </p>
                     <ul>
-                        <li><b>Monkey Phone</b> - 75€ - 125€</li>
-                        <li><b>iMonkey</b> - 100€ - 200€</li>
-                        <li><b>MonkeyMi</b> - 50€ - 100€</li>
-                        <li><b>Monkia</b> - 50€ - 100€</li>
-                        <li><b>Monkeysung</b> - 100€ - 200€</li>
+                        <li><b>Bateria: </b>30€ - 50€</li>
+                        <li><b>Ecrã: </b>50€ - 100€</li>
+                        <li><b>USB-C port: </b>10€ - 20€</li>
+                        <li><b>Headphone jack: </b>5€ - 10€</li>
+                        <li><b>Câmara traseira: </b>50€ - 100€</li>
+                        <li><b>Coluna: </b>20€ - 30€</li>
+                        <li><b>Fingerprint scanner: </b>100€ - 150€</li>
                     </ul>
-                    <br>
+                    <p>É também possível adquirir o serviço de instalação das novas peças, sendo 50€ independentemente do dispositivo.</p>
+                    <p>Caso queira o nosso serviço de formatação do dispositivo, o preço é global, sendo 30€.</p>         
                 </div>
             </div>
-            <br><br>
-            <div class="imagebox2">
-                <h4><b>Peças</b></h4>
-                <p>Na Monkey Business, o cliente poderá encontrar as peças que necessita para a reparação do telemóvel.<br>
-                    Obviamente, o preço de cada peça depende do telemóvel que o cliente possui contudo, o price range pouco varia de telemóvel para telemóvel.    
+                <br>
+                <br>
+                <br>
+            <div id="produtos" class="w3-justify w3-padding-64">
+                <hr class="new1">
+                <center>
+                    <h1><b>Produtos</b></h1>
+                </center>
+                <br>
+
+                <div class="prodbar">
+                    <button id="procurar" class="procurar" onclick="procurar()">Procurar</button>
+                    <button id="inserir" class="inserir" onclick="inserir()">Inserir</button>
+                    <button id="eliminar" class="eliminar" onclick="eliminar()">Eliminar</button>
+                </div>
+
+                <br><br>
+                <!--<br>
+                <img src="images/monkeycellphone.jpg" style="max-width:100%; height:auto;">
+                <br><br>
+                <p>Poderá aqui encontrar os nossos últimos lançamentos de telemóveis.<br>
+                    As marcas disponíveis de momento são:
                 </p>
                 <ul>
-                    <li><b>Bateria: </b>30€ - 50€</li>
-                    <li><b>Ecrã: </b>50€ - 100€</li>
-                    <li><b>USB-C port: </b>10€ - 20€</li>
-                    <li><b>Headphone jack: </b>5€ - 10€</li>
-                    <li><b>Câmara traseira: </b>50€ - 100€</li>
-                    <li><b>Coluna: </b>20€ - 30€</li>
-                    <li><b>Fingerprint scanner: </b>100€ - 150€</li>
+                    <li>Monkey Phone</li>
+                    <li>iMonkey</li>
+                    <li>MonkeyMi</li>
+                    <li>Monkia</li>
+                    <li>Monkeysung</li>
                 </ul>
-                <p>É também possível adquirir o serviço de instalação das novas peças, sendo 50€ independentemente do dispositivo.</p>
-                <p>Caso queira o nosso serviço de formatação do dispositivo, o preço é global, sendo 30€.</p>         
-            </div>
-        </div>
-            <br>
-            <br>
-            <br>
-            <hr class="new1">
-        <div id="produtos" class="w3-justify w3-padding-64">
-        <center>
-            <h1><b>Produtos</b></h1>
-        </center>
-            <br>
+                <p>Os preços, como é óbvio, variam consoante a marca que pretende adquirir, sendo o iMonkey e o Monkeysung os nossos telemóveis premium. <br>
+                    Já mais económicamente acessíveis, mas com a mesma qualidade, temos os MonkeyMi, os Monkey Phones e ainda o clássico Monkia.</p>
+                <br>-->
 
-            <div class="prodbar">
-                <button id="procurar" onclick="procurar()">Procurar</button>
-                <button id="inserir">Inserir</button>
-                <button id="eliminar" onclick="eliminar()">Eliminar</button>
-            </div>
-
-            <br><br>
-            <!--<br>
-            <img src="images/monkeycellphone.jpg" style="max-width:100%; height:auto;">
-            <br><br>
-            <p>Poderá aqui encontrar os nossos últimos lançamentos de telemóveis.<br>
-                As marcas disponíveis de momento são:
-            </p>
-            <ul>
-                <li>Monkey Phone</li>
-                <li>iMonkey</li>
-                <li>MonkeyMi</li>
-                <li>Monkia</li>
-                <li>Monkeysung</li>
-            </ul>
-            <p>Os preços, como é óbvio, variam consoante a marca que pretende adquirir, sendo o iMonkey e o Monkeysung os nossos telemóveis premium. <br>
-                Já mais económicamente acessíveis, mas com a mesma qualidade, temos os MonkeyMi, os Monkey Phones e ainda o clássico Monkia.</p>
-            <br>-->
-
-            <div class="row">
-                <div class="columnleft imagebox2">
-                    <h3><b>Monkey Phone</b></h3>
-                    <br><br>
-                    <div class="zoom">
-                        <img src="images/10.png" style="max-width:100%; height:auto;">
+                <div class="row">
+                    <div class="columnleft imagebox2">
+                        <h3><b>Monkey Phone</b></h3>
+                        <br><br>
+                        <div class="zoom">
+                            <img src="images/10.png" style="max-width:100%; height:auto;">
+                        </div>
+                        <br><br>
+                        <p>Monkey Phone - 499€</p>
                     </div>
-                    <br><br>
-                    <p>Monkey Phone - 499€</p>
-                </div>
-               
-                <div class="columnright imagebox2">
-                    <h3><b>iMonkey</b></h3>
-                    <br><br>
-                    <div class="zoom">
-                        <img src="images/2.png" style="max-width:100%; height:auto;">
-                    </div>
-                    <br><br>
-                    <p>iMonkey - 799€</p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="columnleft imagebox2">    
-                    <h3><b>MonkeyMi</b></h3>
-                    <br><br>
-                    <div class="zoom">
-                        <img src="images/9.png" style="max-width:100%; height:auto;">
-                    </div>
-                    <br><br>
-                    <p>MonkeyMi 10S - 399€</p>
-                </div>
                 
-                <div class="columnright imagebox2">
-                    <h3><b>Monkeysung</b></h3>
-                    <br><br>
-                    <div class="zoom">
-                        <img src="images/5.png" style="max-width:100%; height:auto;">
+                    <div class="columnright imagebox2">
+                        <h3><b>iMonkey</b></h3>
+                        <br><br>
+                        <div class="zoom">
+                            <img src="images/2.png" style="max-width:100%; height:auto;">
+                        </div>
+                        <br><br>
+                        <p>iMonkey - 799€</p>
                     </div>
-                    <br><br>
-                    <p>Monkeysung S20 - 899€</p>
                 </div>
-            </div>
-        </div>
-        <br><br><br><br>
-        
-        <div id="sobrenos" class=" w3-justify w3-padding-64">
-            <hr class="new1">
-            <center><h1><b>Sobre Nós</b></h1></center>
-            
-            <p><br>Somos uma equipa de Desenvolvimento Web que se reuniu no âmbito de lutar contra o controlo da Apple sob o mercado de telemóveis.<br>
-                Ambicionamos lutar contra a tendência de criar um mercado de telemóveis com preços exagerados comparando ao verdadeiro valor do produto.<br>
-                Procuramos disponibilizar os melhores serviços para os nossos clientes, dando sempre ouvidos a críticas e sugestões dos mesmos.<br>
-                Estamos em constante evolução e prometemos que o futuro será algo que se deve esperar com grandes expectativas. <br>
-                A nossa equipa é formada por estudantes de Engenharia Informática que estão constantemente a evoluir os seus conhecimentos de Desenvolvimento Web, o que nos proporciona uma versatilidade no que toca ao nosso site. <br>
-                <br><b>Aqui pode encontrar os integrantes da nossa equipa de desenvolvimento da página:</b>    
-            </p>  
-            <br> 
-            <hr class="new1">
-            <div class="row">
-                <div class="column">
-                  <img src="images/batatinha.jpg" alt="andre" style="width:100%">
-                </div>
-                <div class="column">
-                  <img src="images/wheezer.jpg" alt="Armando" style="width:100%">
-                </div>   
-                <div class="column">
-                  <img src="images/jamal.jpg" alt="silva" style="width:100%">
-                </div>
-                <div class="column">
-                    <img src="images/vesqui.jpg" alt="vesqui" style="width:100%">
-                  </div>
-            </div>
-            <hr class="new1">
-            <!--
-            <br>
-            <h3>Armando Brandão</h3>
-            <img src="images/wheezer.jpg" style="max-width:100%; height:auto;">
-            <br><br>
-            <ul>
-                <li><b>Idade: </b> 20</li>
-                <li><b>Nacionalidade: </b> Portuguesa</li>
-                <li><b>Localidade: </b> Oeiras, Barcarena</li>
-                <li>Estudante de Engenharia Informática, na UAL</li>
-            </ul>
-            <br>
-            <h3>André Santos</h3>
-            <img src="images/batatinha.jpg" style="max-width:100%; height:auto;">
-            <br><br>
-            <ul>
-                <li><b>Idade: </b> 20</li>
-                <li><b>Nacionalidade: </b> Portuguesa</li>
-                <li><b>Localidade: </b> Sintra, Cacém</li>
-                <li>Estudante de Engenharia Informática, na UAL</li>
-            </ul>
-            <br>
-            <h3>Diogo Silva</h3>
-            <img src="images/jamal.jpg" style="max-width:100%; height:auto;">
-            <br><br>
-            <ul>
-                <li><b>Idade: </b> 21</li>
-                <li><b>Nacionalidade: </b> Portuguesa</li>
-                <li><b>Localidade: </b> Lisboa, Lisboa</li>
-                <li>Estudante de Engenharia Informática, na UAL</li>
-            </ul>
-            <br>
-            <h3>Vasco Bettencourt</h3>
-            <img src="images/vesqui.jpg" style="max-width:100%; height:auto;">
-            <br><br>
-            <ul>
-                <li><b>Idade: </b> 20</li>
-                <li><b>Nacionalidade: </b> Portuguesa</li>
-                <li><b>Localidade: </b> Sintra, Massamá</li>
-                <li>Estudante de Engenharia Informática, na UAL</li>
-            </ul>
-            <hr>
-        -->
-        </div>
 
-        <div id="suporte" class="w3-justify w3-padding-64 imagebox2">
-            <h1><b>Suporte</b></h1>
-            <p>Entre em contacto conosco em caso de dúvidas ou de problemas relevantes. <br>
-                Envie-nos um email ou visite-nos. <br>
-                Estamos abertos todos os dias, das 9h59 às 19h59. <br>
-                Poderá enviar-nos email até às 23h59. Voltaremos a estar disponíveis a partir das 9h59.
-            </p>
-            <br>
-            <address>
-                monkeybusiness@autonoma.pt<br>
-                Rua dos Macacos nº 27<br>
-                1950-011, Monkey City<br>
-                Monkey Land
-            </address> 
-        </div>
-    <!--
-        <footer>
-            <div class="footer">
-                <p>Social media</p>
+                <div class="row">
+                    <div class="columnleft imagebox2">    
+                        <h3><b>MonkeyMi</b></h3>
+                        <br><br>
+                        <div class="zoom">
+                            <img src="images/9.png" style="max-width:100%; height:auto;">
+                        </div>
+                        <br><br>
+                        <p>MonkeyMi 10S - 399€</p>
+                    </div>
+                    
+                    <div class="columnright imagebox2">
+                        <h3><b>Monkeysung</b></h3>
+                        <br><br>
+                        <div class="zoom">
+                            <img src="images/5.png" style="max-width:100%; height:auto;">
+                        </div>
+                        <br><br>
+                        <p>Monkeysung S20 - 899€</p>
+                    </div>
+                </div>
             </div>
-        </footer> -->
-    </div>
-    <script src="scripts/script.js"></script>
-</body>
+            <br><br><br><br>
+            
+            <div id="sobrenos" class=" w3-justify w3-padding-64">
+                <hr class="new1">
+                <center><h1><b>Sobre Nós</b></h1></center>
+                <p>
+                    <br>Somos uma equipa de Desenvolvimento Web que se reuniu no âmbito de lutar contra o controlo da Apple sob o mercado de telemóveis.<br>
+                    Ambicionamos lutar contra a tendência de criar um mercado de telemóveis com preços exagerados comparando ao verdadeiro valor do produto.<br>
+                    Procuramos disponibilizar os melhores serviços para os nossos clientes, dando sempre ouvidos a críticas e sugestões dos mesmos.<br>
+                    Estamos em constante evolução e prometemos que o futuro será algo que se deve esperar com grandes expectativas. <br>
+                    A nossa equipa é formada por estudantes de Engenharia Informática que estão constantemente a evoluir os seus conhecimentos de Desenvolvimento Web, o que nos proporciona uma versatilidade no que toca ao nosso site. <br>
+                    <br><b>Aqui pode encontrar os integrantes da nossa equipa de desenvolvimento da página:</b>    
+                </p>  
+                <br> 
+                <hr class="new1">
+
+                <div class="row">
+                    <div class="column">
+                        <img src="images/batatinha.jpg" alt="andre" style="width:100%">
+                    </div>
+
+                    <div class="column">
+                        <img src="images/wheezer.jpg" alt="Armando" style="width:100%">
+                    </div>   
+
+                    <div class="column">
+                        <img src="images/jamal.jpg" alt="silva" style="width:100%">
+                    </div>
+
+                    <div class="column">
+                        <img src="images/vesqui.jpg" alt="vesqui" style="width:100%">
+                    </div>
+                </div>
+                <hr class="new1">
+            </div>
+                <!--
+                <br>
+                <h3>Armando Brandão</h3>
+                <img src="images/wheezer.jpg" style="max-width:100%; height:auto;">
+                <br><br>
+                <ul>
+                    <li><b>Idade: </b> 20</li>
+                    <li><b>Nacionalidade: </b> Portuguesa</li>
+                    <li><b>Localidade: </b> Oeiras, Barcarena</li>
+                    <li>Estudante de Engenharia Informática, na UAL</li>
+                </ul>
+                <br>
+                <h3>André Santos</h3>
+                <img src="images/batatinha.jpg" style="max-width:100%; height:auto;">
+                <br><br>
+                <ul>
+                    <li><b>Idade: </b> 20</li>
+                    <li><b>Nacionalidade: </b> Portuguesa</li>
+                    <li><b>Localidade: </b> Sintra, Cacém</li>
+                    <li>Estudante de Engenharia Informática, na UAL</li>
+                </ul>
+                <br>
+                <h3>Diogo Silva</h3>
+                <img src="images/jamal.jpg" style="max-width:100%; height:auto;">
+                <br><br>
+                <ul>
+                    <li><b>Idade: </b> 21</li>
+                    <li><b>Nacionalidade: </b> Portuguesa</li>
+                    <li><b>Localidade: </b> Lisboa, Lisboa</li>
+                    <li>Estudante de Engenharia Informática, na UAL</li>
+                </ul>
+                <br>
+                <h3>Vasco Bettencourt</h3>
+                <img src="images/vesqui.jpg" style="max-width:100%; height:auto;">
+                <br><br>
+                <ul>
+                    <li><b>Idade: </b> 20</li>
+                    <li><b>Nacionalidade: </b> Portuguesa</li>
+                    <li><b>Localidade: </b> Sintra, Massamá</li>
+                    <li>Estudante de Engenharia Informática, na UAL</li>
+                </ul>
+                <hr>
+            -->
+            
+
+            <div id="suporte" class="w3-justify w3-padding-64 imagebox2">
+                <h1><b>Suporte</b></h1>
+                <p>Entre em contacto conosco em caso de dúvidas ou de problemas relevantes. <br>
+                    Envie-nos um email ou visite-nos. <br>
+                    Estamos abertos todos os dias, das 9h59 às 19h59. <br>
+                    Poderá enviar-nos email até às 23h59. Voltaremos a estar disponíveis a partir das 9h59.
+                </p>
+                <br>
+                <address>
+                    monkeybusiness@autonoma.pt<br>
+                    Rua dos Macacos nº 27<br>
+                    1950-011, Monkey City<br>
+                    Monkey Land
+                </address> 
+            </div>
+        <!--
+            <footer>
+                <div class="footer">
+                    <p>Social media</p>
+                </div>
+            </footer> -->
+        </div>
+    </body>
 </html>

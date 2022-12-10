@@ -4,9 +4,10 @@
 
 A fazer:
 
-- Fazer os botões funcionarem ()
+- Passar as imagens dos Produtos para o db.js ()
+- Meter os botões funcionarem corretamente ()
+- Dar fix ao espaçamento que existe entre os botões de Inserir, Remover e Procurar ()
 - Verificar responsividade ()
-- Esconder o botão de Inserir e Remover quando o admin não dá login ()
 
 A ter em conta:
 

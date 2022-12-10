@@ -18,6 +18,7 @@ function showForm() {
     document.getElementById("form").style.display = "block";
 }
 
+/*
 function listar() {
     let produtos = document.getElementById("listaProds");
     fetch('http://localhost:3002/getProds', {
@@ -36,6 +37,7 @@ function listar() {
     });
     return;
 }
+*/
 
 function login() {
     let user = prompt("Nome de utilizador?");
@@ -51,7 +53,7 @@ function login() {
                 document.getElementById("eliminar").style.display = "inline";
                 document.getElementById("procurar").style.display = "inline";
                 userAutenticado = us;
-                listar();
+                //listar();
                 return;
             } else {
                 document.getElementById("produtos").style.display = "block";
@@ -62,7 +64,7 @@ function login() {
                 document.getElementById("eliminar").style.display = "none";
                 document.getElementById("procurar").style.display = "block";
                 userAutenticado = us;
-                listar();
+                //listar();
                 return;
             }
         }
@@ -87,13 +89,27 @@ function registar() {
     console.log(utilizadores);
 }
 
+function inserir() {
+    let nome = prompt("Nome do produto:");
+    let url = prompt("URL da imagem do produto:");
+    let prod = new Object();
+    prod.nome = nome;
+    prod.url = url;
+    fetch('http://localhost:3002/create', {
+        method: "POST",
+        headers: { "Content-type": "application/json;charset=UTF-8" },
+        body: JSON.stringify(prod)
+    })
+    //listar();
+}
+
 function eliminar() {
     let id = prompt("ID do produto");
     fetch('http://localhost:3002/delete/' + id, {
         method: "DELETE",
         headers: { "Content-type": "application/json;charset=UTF-8" },
     })
-    listar();
+    //listar();
 }
 
 function procurar() {

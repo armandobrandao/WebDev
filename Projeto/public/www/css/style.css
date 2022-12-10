@@ -83,56 +83,6 @@ body {
   transition: 0.3s;
 }
 
-/*
-.form-popup {
-  display: none;
-  position: fixed;
-  right: 15px;
-  border: 3px solid rgb(131, 131, 131);
-  z-index: 9;
-  top: 55px;
-  right: 0px;
-}
-
-.form-container {
-  max-width: 300px;
-  padding: 10px;
-  background-color: rgb(131, 131, 131);
-  color: white;
-}
-
-.form-container input[type=text], .form-container input[type=password] {
-  width: 100%;
-  padding: 15px;
-  margin: 5px 0 22px 0;
-  border: none;
-  background: rgb(56, 56, 56);
-}
-
-.form-container input[type=text]:focus, .form-container input[type=password]:focus {
-  background-color: #ddd;
-  outline: none;
-}
-
-.form-container .btn {
-  background-color: #04AA6D;
-  transition: 0.3s;
-  color: white;
-  padding: 16px 20px;
-  border: none;
-  cursor: pointer;
-  width: 100%;
-  margin-bottom:10px;
-  opacity: 0.8;
-}
-
-.form-container .cancel {
-  background-color: red;
-  transition: 0.3s;
-}
-*/
-
-
 .login:hover {
   opacity: 1;
 }
@@ -217,27 +167,112 @@ hr.new1 {
   background-color: #1d1d1d;
   width: 100%;
   transition: 0.3s;
+  color: white;
+}
+
+.procurar {
+  position: relative;
+  background-color: #1d1d1d;
+  color: white;
+  text-align: center;
   padding: 17px 10px;
-  color: white;
+  border: none;
+  cursor: pointer;
+  opacity: 0.8;
+  transition: 0.3s;
+
 }
 
-#procurar {
+.inserir {
   position: relative;
   background-color: #1d1d1d;
   color: white;
   text-align: center;
+  padding: 17px 10px;
+  border: none;
+  cursor: pointer;
+  opacity: 0.8;
+  transition: 0.3s;
 }
 
-#inserir {
+.eliminar {
   position: relative;
   background-color: #1d1d1d;
   color: white;
   text-align: center;
+  padding: 17px 10px;
+  border: none;
+  cursor: pointer;
+  opacity: 0.8;
+  transition: 0.3s;
 }
 
-#eliminar {
-  position: relative;
-  background-color: #1d1d1d;
-  color: white;
-  text-align: center;
+.eliminar:hover {
+  opacity: 1;
+  background-color: rgb(43, 43, 43);
+  transition: 0.3s;
+  color: whitesmoke;
 }
+
+.inserir:hover {
+  opacity: 1;
+  background-color: rgb(43, 43, 43);
+  transition: 0.3s;
+  color: whitesmoke;
+}
+
+.procurar:hover {
+  opacity: 1;
+  background-color: rgb(43, 43, 43);
+  transition: 0.3s;
+  color: whitesmoke;
+}
+
+/*
+.form-popup {
+  display: none;
+  position: fixed;
+  right: 15px;
+  border: 3px solid rgb(131, 131, 131);
+  z-index: 9;
+  top: 55px;
+  right: 0px;
+}
+
+.form-container {
+  max-width: 300px;
+  padding: 10px;
+  background-color: rgb(131, 131, 131);
+  color: white;
+}
+
+.form-container input[type=text], .form-container input[type=password] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  border: none;
+  background: rgb(56, 56, 56);
+}
+
+.form-container input[type=text]:focus, .form-container input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+.form-container .btn {
+  background-color: #04AA6D;
+  transition: 0.3s;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom:10px;
+  opacity: 0.8;
+}
+
+.form-container .cancel {
+  background-color: red;
+  transition: 0.3s;
+}
+*/
