@@ -39,12 +39,14 @@ app.post("/create", (req, res) => {
     newID = db.length + 1;
     const nome = req.body.nome;
     const url = req.body.url;
+    const preco = req.body.preco;
     console.log(req.body);
-    console.log(newID, nome, url);
+    console.log(newID, nome, url, preco);
     const newProduct = {
         "id": newID,
         "nome": nome,
-        "url": url
+        "url": url,
+        "preco": preco
     }
     db.push(newProduct);
     result = newProduct;

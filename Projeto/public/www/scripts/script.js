@@ -95,7 +95,7 @@ function registar() {
 function inserir() {
     let nome = prompt("Nome do produto:");
     let url = prompt("URL da imagem do produto:");
-    var preco = prompt("Preço do produto:");
+    let preco = prompt("Preço do produto:");
     let prod = new Object();
     prod.nome = nome;
     prod.url = url;
