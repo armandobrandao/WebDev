@@ -18,9 +18,7 @@ function showForm() {
     document.getElementById("form").style.display = "block";
 }
 
-/*
 function listar() {
-    let produtos = document.getElementById("listaProds");
     fetch('http://localhost:3002/getProds', {
         method: "GET",
         headers: { "Content-type": "application/json;charset=UTF-8" }
@@ -29,15 +27,20 @@ function listar() {
     .then(json => {
         let lista = "";
         for (prod of json) {
-            lista += prod.nome;
-            lista += '<br>';
-            lista += '<img src="' + prod.url + '" width="200px"><br>';
+            lista += '<div class="columnleft imagebox2">';
+            lista += '<h3><b>' + prod.nome + '</b></h3>';
+            lista += '<br><br>';
+            lista += '<div class="zoom">';
+            lista += '<img src="' + prod.url + '"style="max-width:100%; height:auto;">';
+            lista += '</div>';
+            lista += '<br><br>';
+            lista += '<p>' + prod.nome + ' - ' + prod.preco + '</p>';
+            lista += '</div>';
         }
-        produtos.innerHTML = lista;
+        document.getElementById("prodList").innerHTML = lista;
     });
     return;
 }
-*/
 
 function login() {
     let user = prompt("Nome de utilizador?");
@@ -53,7 +56,7 @@ function login() {
                 document.getElementById("eliminar").style.display = "inline";
                 document.getElementById("procurar").style.display = "inline";
                 userAutenticado = us;
-                //listar();
+                listar();
                 return;
             } else {
                 document.getElementById("produtos").style.display = "block";
@@ -64,7 +67,7 @@ function login() {
                 document.getElementById("eliminar").style.display = "none";
                 document.getElementById("procurar").style.display = "block";
                 userAutenticado = us;
-                //listar();
+                listar();
                 return;
             }
         }
@@ -92,15 +95,17 @@ function registar() {
 function inserir() {
     let nome = prompt("Nome do produto:");
     let url = prompt("URL da imagem do produto:");
+    var preco = prompt("Preço do produto:");
     let prod = new Object();
     prod.nome = nome;
     prod.url = url;
+    prod.preco = preco;
     fetch('http://localhost:3002/create', {
         method: "POST",
         headers: { "Content-type": "application/json;charset=UTF-8" },
         body: JSON.stringify(prod)
     })
-    //listar();
+    listar();
 }
 
 function eliminar() {
@@ -109,11 +114,12 @@ function eliminar() {
         method: "DELETE",
         headers: { "Content-type": "application/json;charset=UTF-8" },
     })
-    //listar();
+    listar();
 }
 
 function procurar() {
     let id = prompt("ID do produto");
+    document.getElementById("prodList").innerHTML = "";
     fetch('http://localhost:3002/' + id, {
         method: "GET",
         headers: { "Content-type": "application/json;charset=UTF-8" },
@@ -121,10 +127,15 @@ function procurar() {
     .then(response => response.json())
     .then(json => {
         let lista = "";
-        lista += json.nome;
-        lista += '<br>';
-        lista += '<img src="' + json.url + '" width="200px"><br>';
-        lista += '<br>';
-        document.getElementById("listaProds").innerHTML = lista;
+        lista += '<div class="columnleft imagebox2">';
+        lista += '<h3><b>' + json.nome + '</b></h3>';
+        lista += '<br><br>';
+        lista += '<div class="zoom">';
+        lista += '<img src="' + json.url + '"style="max-width:100%; height:auto;">';
+        lista += '</div>';
+        lista += '<br><br>';
+        lista += '<p>' + json.nome + ' - ' + json.preco + '</p>';
+        lista += '</div>';
+        document.getElementById("prodList").innerHTML = lista;
     });
 }

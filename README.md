@@ -4,9 +4,6 @@
 
 A fazer:
 
-- Passar as imagens dos Produtos para o db.js ()
-- Meter os botões funcionarem corretamente ()
-- Dar fix ao espaçamento que existe entre os botões de Inserir, Remover e Procurar ()
 - Verificar responsividade ()
 
 A ter em conta:
