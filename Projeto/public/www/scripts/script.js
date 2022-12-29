@@ -75,6 +75,15 @@ function login() {
     alert("Credenciais inválidas!");
 }
 
+function myFunction() {
+    var x = document.getElementById("topnav");
+    if (x.className === "topnav") {
+      x.className += " responsive";
+    } else {
+      x.className = "topnav";
+    }
+}
+
 function logout() {
     console.log("Logout");
     document.getElementById("logout").style.display = "none";

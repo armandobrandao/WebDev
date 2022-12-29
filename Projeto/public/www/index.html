@@ -8,58 +8,39 @@
         <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat%22%3E">
         <link rel="icon" type="image/x-icon" href="images/monkeyicon.png">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <script src="scripts/script.js"></script>
         <title>Monkey Business</title>
     </head>
     <body>
         <nav>
-            <div class="topnav">
+            <div class="topnav" id="topnav">
                 <a href="#home">Home</a>
                 <a href="#servicos">Serviços</a>
                 <a href="#produtos">Produtos</a>
                 <a href="#sobrenos">Sobre Nós</a>
                 <a href="#suporte">Suporte</a>
-                <img src="images/banana-pixel-art-png.png" alt="banana" width="50px" height="50px">
-                <button id="login" class="login" onclick="login()">Login</button>
-                <button id="registar" class="registar" onclick="registar()">Registar</button>
-                <button id="logout" class="logout" onclick="logout()">Logout</button>
+                <a id="login" class="login" onclick="login()">Login</a>
+                <a id="registar" class="registar" onclick="registar()">Registar</a>
+                <a id="logout" class="logout" onclick="logout()">Logout</a>
+                <a href="javascript:void(0);" class="icon" onclick="myFunction()"><i class="fa fa-bars"></i></a>
             </div>
         </nav>
-        <div class="content" style="text-align:center; padding: 300px;">
-            <!--
-            <div class="form-popup" id="myForm">
-                    <form action="/action_page.php" class="form-container">
-                    <h1>Login</h1>
-
-                    <label for="email"><b>Email</b></label>
-                    <input type="text" placeholder="Enter Email" name="email" required>
-
-                    <label for="psw"><b>Password</b></label>
-                    <input type="password" placeholder="Enter Password" name="psw" required>
-
-                    <button type="submit" class="btn">Login</button>
-                    <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
-                </form>
-                
-            </div>
-            -->
+        <div class="content" style="text-align:center; padding: 100px;">
             <header>
                 <div id="home" class="w3-justify w3-padding-64">
                     <center>
                         <h1><b>Monkey Business</b></h1>
-                        <br>
-                        <img src="images/monkeylogo.png" width="200px" height:auto;>
+                        <img src="images/monkeylogo.png" style="max-width:400px; height:auto;">
                     </center>
-                    <br><br><br><br><br><br><br><br><br><br>
                 </div>
             </header>
 
             <div id="servicos" class="w3-justify w3-padding-64">
-                <hr class="new1">
+                <hr class="style-one">
                 <center>
                     <h1><b>Serviços</b></h1>
-                    <br>
-                    <div class="imagebox1">
+                    <div>
                         <img src="images/monkeyonthephone.jpg" style="max-width:100%; height:auto;">
                     </div>
                 </center>
@@ -75,7 +56,7 @@
                 <p>Futuramente haverão novos serviços relativos a produtos informáticos, tais como instalação de sistemas operativos e reparação de computadores.</p>
                 <br>
                 <center>
-                    <hr class="new1">
+                    <hr class="style-one">
                     <br>
                     <h2><b>Preços</b></h2>
                 </center>
@@ -117,11 +98,9 @@
                     <p>Caso queira o nosso serviço de formatação do dispositivo, o preço é global, sendo 30€.</p>         
                 </div>
             </div>
-                <br>
-                <br>
-                <br>
+                
             <div id="produtos" class="w3-padding-64">
-                <hr class="new1">
+                <hr class="style-one">
                 <center>
                     <h1><b>Produtos</b></h1>
                 </center>
@@ -132,25 +111,8 @@
                     <button id="inserir" class="inserir" onclick="inserir()">Inserir</button>
                     <button id="eliminar" class="eliminar" onclick="eliminar()">Eliminar</button>
                 </div>
-
                 <br><br>
-                <!--<br>
-                <img src="images/monkeycellphone.jpg" style="max-width:100%; height:auto;">
-                <br><br>
-                <p>Poderá aqui encontrar os nossos últimos lançamentos de telemóveis.<br>
-                    As marcas disponíveis de momento são:
-                </p>
-                <ul>
-                    <li>Monkey Phone</li>
-                    <li>iMonkey</li>
-                    <li>MonkeyMi</li>
-                    <li>Monkia</li>
-                    <li>Monkeysung</li>
-                </ul>
-                <p>Os preços, como é óbvio, variam consoante a marca que pretende adquirir, sendo o iMonkey e o Monkeysung os nossos telemóveis premium. <br>
-                    Já mais económicamente acessíveis, mas com a mesma qualidade, temos os MonkeyMi, os Monkey Phones e ainda o clássico Monkia.</p>
-                <br>-->
-
+                
                 <div id="prodclass="row">
                     <div class="columnleft imagebox2">
                         <h3><b>Monkey Phone</b></h3>
@@ -193,10 +155,9 @@
                     </div>
                 </div>
             </div>
-            <br><br><br><br>
             
             <div id="sobrenos" class=" w3-justify w3-padding-64">
-                <hr class="new1">
+                <hr class="style-one">
                 <center><h1><b>Sobre Nós</b></h1></center>
                 <p>
                     <br>Somos uma equipa de Desenvolvimento Web que se reuniu no âmbito de lutar contra o controlo da Apple sob o mercado de telemóveis.<br>
@@ -207,7 +168,7 @@
                     <br><b>Aqui pode encontrar os integrantes da nossa equipa de desenvolvimento da página:</b>    
                 </p>  
                 <br> 
-                <hr class="new1">
+                <hr class="style-one">
 
                 <div class="row">
                     <div class="column">
@@ -226,7 +187,7 @@
                         <img src="images/vesqui.jpg" alt="vesqui" style="width:100%">
                     </div>
                 </div>
-                <hr class="new1">
+                <hr class="style-one">
             </div>
                 <!--
                 <br>
