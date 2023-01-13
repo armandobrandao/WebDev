@@ -1,5 +1,10 @@
 const express = require("express");
+const fs = require("fs");
+const https = require("https");
+
 let db = require("./config/db");
+let utilizadores = require("./config/users.json");
+
 const cors = require("cors");
 bodyParser = require('body-parser');
 const jwt = require('jsonwebtoken');
@@ -7,6 +12,16 @@ const app = express();
 require("dotenv").config();
 
 const PORT = 3002;
+
+const sslServer = https.createServer({
+    key: fs.readFileSync('cert/key.pem'),
+    cert:fs.readFileSync('cert/certificate.pem')
+}, app)
+
+app.use((req, res, next) => {
+    req.secure ? next() : res.redirect('https://' + req.headers.host + req.url)
+})
+
 app.use(express.json());
 
 app.use(cors());
@@ -15,7 +30,25 @@ app.options('*', cors()) // include before other routes
 app.use(express());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-//
+
+function escreve(fich, db) {
+    fs.writeFile(fich, JSON.stringify(db, null, 4), 'utf8', err => {
+        if (err) {
+            console.log(`Error writing file: ${err}`)
+        } else {
+            console.log('Escreveu no ficheiro ' + fich); // Sucesso
+        }
+    })
+}
+
+function existeUser(nome) {
+    for (utilizador of users)
+        if (utilizador.username === nome) {
+            return true;
+        }
+    return false;
+}
+
 // Route to get all posts
 app.get("/getProds", cors(), (req, res) => {
     result = db;
@@ -77,7 +110,7 @@ app.delete("/delete/:id", (req, res) => {
 });
 
 app.use(express.static('public/www'));
-app.listen(PORT, () => {
+sslServer.listen(PORT, () => {
     console.log(`Server is running on ${PORT}`);
 });
 
@@ -130,3 +163,55 @@ const posts = [
 app.get("/posts", authenticateToken, (req, res) => {
     res.json(posts.filter(post => post.username === req.user.name))
 })
+
+app.post("/registar", (req, res) => {
+    const username = req.body.username;
+    if (!existeUser(username)) {
+        const newUser = {
+            username: username,
+            password: req.body.password,
+            tipo: 0
+        }
+        if (newUser.password.length < 5) {
+            return res.status(400).send({
+                msg: 'Password deve ter 5 ou mais caracteres'
+            });
+        }
+        users.push(newUser);
+        escreve("./config/users.json", users);
+        return res.status(201).send({
+            msg: `Criado utilizador ${username}`
+        });
+    } else {
+        return res.status(409).send({
+            msg: 'Utilizador já existe'
+        });
+    }
+});
+
+app.post("/login", (req, res) => {
+    const nome = req.body.username;
+    const senha = req.body.password;
+    for (utilizador of users) {
+        if (utilizador.username === nome)
+            if (utilizador.password === senha) {
+                token = jwt.sign(utilizador, process.env.SECRET);
+                return res.status(201).json({ 
+                    auth: true, 
+                    token: token,
+                //msg: getFavoritos(utilizador.username) 
+            })
+            } else {
+                return res.status(401).json({ msg: "Password inválida!" })
+            }
+    }
+    return res.status(404).json({ msg: "Utilizador não encontrado!" })
+});
+
+function validarToken(token) {
+    try {
+        return jwt.verify(token, process.env.SECRET);
+    } catch (err) {
+        return false;
+    }
+}

@@ -19,7 +19,7 @@ function showForm() {
 }
 
 function listar() {
-    fetch('http://localhost:3002/getProds', {
+    fetch('https://localhost:3002/getProds', {
         method: "GET",
         headers: { "Content-type": "application/json;charset=UTF-8" }
     })
@@ -45,6 +45,9 @@ function listar() {
 function login() {
     let user = prompt("Nome de utilizador?");
     let pass = prompt("Senha?");
+    /*fetch('http://localhost:3002/login') {
+
+    }*/
     for (us of utilizadores) {
         if (us.nome == user && us.senha == pass) {
             if (us.nome == admin.nome && us.senha == admin.senha) {
@@ -109,7 +112,7 @@ function inserir() {
     prod.nome = nome;
     prod.url = url;
     prod.preco = preco;
-    fetch('http://localhost:3002/create', {
+    fetch('https://localhost:3002/create', {
         method: "POST",
         headers: { "Content-type": "application/json;charset=UTF-8" },
         body: JSON.stringify(prod)

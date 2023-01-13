@@ -1,11 +1,3 @@
-/* const mysql = require('mysql')
-
-const db = mysql.createConnection({
-    host: "localhost",
-    user: "postuser",
-    password: "",
-    database: "blog_posts"
-}) */
 const db = [];
 db.push({ "id": 1, "nome": "Monkey Phone", "url": "../images/10.png", "preco": "499€" });
 db.push({ "id": 2, "nome": "iMonkey", "url": "../images/2.png", "preco": "799€" });
