@@ -2,10 +2,12 @@ const express = require("express");
 let db = require("./config/db");
 const cors = require("cors");
 bodyParser = require('body-parser');
-
+const jwt = require('jsonwebtoken');
 const app = express();
+require("dotenv").config();
 
 const PORT = 3002;
+app.use(express.json());
 
 app.use(cors());
 app.options('*', cors()) // include before other routes
@@ -79,17 +81,52 @@ app.listen(PORT, () => {
     console.log(`Server is running on ${PORT}`);
 });
 
-/*
-app.post("/submit-form", (req, res) => {
-    let product = {
-        name: req.body.name,
-        url: req.body.url
+const prods = [
+    {
+        nome: 'prod1', 
+        tipo: 'tipo1'
+    },
+    {
+        nome: 'prod2', 
+        tipo: 'tipo2'
     }
-    db.push(product);
-    console.log("\nLista de produtos: ");
-    for(let i = 0; i<db.length; i++){
-        console.log("Produto: "+ db[i].name + " Url: " + db[i].url);
+]
+
+app.get("/prods",(req,res) => {
+    res.json(prods);
+})
+
+app.post("/login",(req,res) => {
+    const username = req.body.username;
+    const user = {nome: username};
+    
+    const jwttoken = jwt.sign(user,process.env.ACCESS_TOKEN_SECRET)
+
+    res.send({Token: jwttoken });
+
+})
+
+app.listen(3000);
+
+function authenticateToken(req, res, next) {
+    const authHeader = req.headers["autorization"]
+    const token = authHeader && authHeader.split(" ")[1]
+    if (token == null) return res.sendStatus(401)
+    
+    jwt.verify (token, process.env.ACCESS_TOKEN_SECRET, (err, user) => {
+        if (err) return res.sendStatus(403)
+        req.user = user
+        next()
+    })
+}
+
+const posts = [
+    {
+        nome: "Becas",
+        pass: "haha"
     }
-    res.send("Working");
-});
-*/
+]
+
+app.get("/posts", authenticateToken, (req, res) => {
+    res.json(posts.filter(post => post.username === req.user.name))
+})
