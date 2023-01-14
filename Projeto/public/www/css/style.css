@@ -1,5 +1,7 @@
 #produtos {display:none}
 #logout {display:none}
+#prodnav {display:none}
+#formLogin {display:none}
 
 html {
   scroll-behavior: smooth;
@@ -168,14 +170,6 @@ hr.style-one {
   background-image: linear-gradient(to right, #ccc, #333, #ccc);
 }
 
-/*
-hr.new1 {
-  border: 10px solid rgb(241, 185, 62);
-  outline: 2px solid rgb(49, 22, 22);
-  border-radius: 4px;
-}
-*/
-
 .imagebox2{
   border: 10px solid rgb(241, 185, 62);
   outline: 2px solid rgb(49, 22, 22);
@@ -260,4 +254,30 @@ hr.new1 {
   background-color: rgb(43, 43, 43);
   transition: 0.3s;
   color: whitesmoke;
+}
+
+.formLogin {
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%, -50%);
+  width:300px;
+  padding:20px 30px;
+  background: white;
+  box-shadow: 2px 2px 5px 5px rgba(0,0,0,0.15);
+  border-radius: 10px;
+}
+
+.formLogin .closeForm {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 15px;
+  height:15px;
+  background: gray;
+  color: #eee;
+  text-align: center;
+  line-height: 15px;
+  border-radius:15px;
+  cursor: pointer;
 }

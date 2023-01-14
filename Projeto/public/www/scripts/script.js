@@ -6,6 +6,8 @@ utilizadores.push(admin);
 userAtual = null;
 var userAutenticado = null;
 
+const urlBase = "https://localhost:3002/api";
+
 function openForm() {
     document.getElementById("myForm").style.display = "block";
 }
@@ -43,8 +45,7 @@ function listar() {
 }
 
 function login() {
-    let user = prompt("Nome de utilizador?");
-    let pass = prompt("Senha?");
+    document.getElementById("formLogin").style.display = "block";
     /*fetch('http://localhost:3002/login') {
 
     }*/
@@ -52,6 +53,7 @@ function login() {
         if (us.nome == user && us.senha == pass) {
             if (us.nome == admin.nome && us.senha == admin.senha) {
                 document.getElementById("produtos").style.display = "block";
+                document.getElementById("prodnav").style.display = "block";
                 document.getElementById("registar").style.display = "none";
                 document.getElementById("login").style.display = "none"; 
                 document.getElementById("logout").style.display = "inline"; 
@@ -62,6 +64,7 @@ function login() {
                 listar();
                 return;
             } else {
+                document.getElementById("prodnav").style.display = "block";
                 document.getElementById("produtos").style.display = "block";
                 document.getElementById("registar").style.display = "none";
                 document.getElementById("login").style.display = "none";
@@ -93,6 +96,7 @@ function logout() {
     document.getElementById("login").style.display = "inline";
     document.getElementById("registar").style.display = "inline";
     document.getElementById("produtos").style.display = "none";
+    document.getElementById("prodnav").style.display = "none";
 }
 
 function registar() {

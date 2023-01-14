@@ -17,12 +17,14 @@
             <div class="topnav" id="topnav">
                 <a href="#home">Home</a>
                 <a href="#servicos">Serviços</a>
-                <a href="#produtos">Produtos</a>
+                <a id="prodnav" href="#produtos">Produtos</a>
                 <a href="#sobrenos">Sobre Nós</a>
                 <a href="#suporte">Suporte</a>
+               
                 <a id="login" class="login" onclick="login()">Login</a>
                 <a id="registar" class="registar" onclick="registar()">Registar</a>
                 <a id="logout" class="logout" onclick="logout()">Logout</a>
+                
                 <a href="javascript:void(0);" class="icon" onclick="myFunction()"><i class="fa fa-bars"></i></a>
             </div>
         </nav>
@@ -33,6 +35,26 @@
                         <h1><b>Monkey Business</b></h1>
                         <img src="images/monkeylogo.png" style="max-width:100%; height:auto;">
                     </center>
+                </div>
+
+                <div id="formLogin" class="formLogin">
+                    <fieldset>
+                        <div class="closeForm">&times;</div>
+                        <div class="formElement">
+                            <label for="username">Username:</label>
+                            <input type="text" name="username" id="username"/><br/>
+                        </div>
+                        <div class="formElement"></div>
+                            <label for="password">Password</label>
+                            <input type="password" name="password" id="password"/>
+                        </div>
+                        <div class="formElement">
+                            <button id="btnLogin" onclick="login()">Enviar</button>
+                        </div>
+                        <div class="formElement"></div>
+                            <button id="btnRegistar" onclick="registarEnviar()" style="display: none">Enviar Registo</button>
+                        </div>
+                    </fieldset>
                 </div>
             </header>
 

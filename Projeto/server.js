@@ -1,6 +1,7 @@
 const express = require("express");
 const fs = require("fs");
 const https = require("https");
+const app = express();
 
 let db = require("./config/db");
 let utilizadores = require("./config/users.json");
@@ -8,10 +9,15 @@ let utilizadores = require("./config/users.json");
 const cors = require("cors");
 bodyParser = require('body-parser');
 const jwt = require('jsonwebtoken');
-const app = express();
-require("dotenv").config();
+app.use(express());
+const cookieParser = require('cookie-parser')
 
-const PORT = 3002;
+app.use(cookieParser())
+require("dotenv").config();
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+const PORT = process.env.PORT || 3002; 
 
 const sslServer = https.createServer({
     key: fs.readFileSync('cert/key.pem'),
@@ -22,12 +28,9 @@ app.use((req, res, next) => {
     req.secure ? next() : res.redirect('https://' + req.headers.host + req.url)
 })
 
-app.use(express.json());
-
 app.use(cors());
-app.options('*', cors()) // include before other routes
+app.options('*', cors()) 
 
-app.use(express());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
