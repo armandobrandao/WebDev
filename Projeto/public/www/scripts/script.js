@@ -57,18 +57,35 @@ async function login() {
     switch (resposta.status) {
         case 201:
             {
-                document.getElementById("produtos").style.display = "block";
-                document.getElementById("prodnav").style.display = "block";
-                document.getElementById("registar").style.display = "none";
-                document.getElementById("login").style.display = "none";
-                document.getElementById("formLogin").style.display = "none"; 
-                document.getElementById("logout").style.display = "inline"; 
-                document.getElementById("inserir").style.display = "inline";
-                document.getElementById("eliminar").style.display = "inline";
-                document.getElementById("procurar").style.display = "inline";
-                document.getElementById("legenda").innerText = "Autenticar";
-                localStorage.setItem("token", json.token);
-                break;
+                if (user.username == "admin" ) {
+                    document.getElementById("produtos").style.display = "block";
+                    document.getElementById("prodnav").style.display = "block";
+                    document.getElementById("registar").style.display = "none";
+                    document.getElementById("login").style.display = "none";
+                    document.getElementById("formLogin").style.display = "none"; 
+                    document.getElementById("logout").style.display = "inline"; 
+                    document.getElementById("inserir").style.display = "inline";
+                    document.getElementById("eliminar").style.display = "inline";
+                    document.getElementById("procurar").style.display = "inline";
+                    document.getElementById("legenda").innerText = "Autenticar";
+                    localStorage.setItem("token", json.token);
+                    break;
+                }
+                else {
+                    document.getElementById("produtos").style.display = "block";
+                    document.getElementById("prodnav").style.display = "block";
+                    document.getElementById("registar").style.display = "none";
+                    document.getElementById("login").style.display = "none";
+                    document.getElementById("formLogin").style.display = "none"; 
+                    document.getElementById("logout").style.display = "inline"; 
+                    document.getElementById("inserir").style.display = "none";
+                    document.getElementById("eliminar").style.display = "none";
+                    document.getElementById("procurar").style.display = "none";
+                    document.getElementById("legenda").innerText = "Autenticar";
+                    localStorage.setItem("token", json.token);
+                    break;
+                }
+                    
             }
         case 401:
             {
@@ -156,7 +173,7 @@ function inserir() {
 
 function eliminar() {
     let id = prompt("ID do produto");
-    fetch('http://localhost:3002/delete/' + id, {
+    fetch('https://localhost:3002/delete/' + id, {
         method: "DELETE",
         headers: { "Content-type": "application/json;charset=UTF-8" },
     })
@@ -166,7 +183,7 @@ function eliminar() {
 function procurar() {
     let id = prompt("ID do produto");
     document.getElementById("prodList").innerHTML = "";
-    fetch('http://localhost:3002/' + id, {
+    fetch('https://localhost:3002/' + id, {
         method: "GET",
         headers: { "Content-type": "application/json;charset=UTF-8" },
     })

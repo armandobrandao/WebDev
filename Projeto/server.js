@@ -150,13 +150,6 @@ function authenticateToken(req, res, next) {
     })
 }
 
-const posts = [
-    {
-        nome: "Becas",
-        pass: "haha"
-    }
-]
-
 app.get("/posts", authenticateToken, (req, res) => {
     res.json(posts.filter(post => post.username === req.user.name))
 })
@@ -167,7 +160,7 @@ app.post("/registar", (req, res) => {
         const newUser = {
             username: username,
             password: req.body.password,
-            tipo: 0
+            type: 0
         }
         if (newUser.password.length < 5) {
             return res.status(400).send({
