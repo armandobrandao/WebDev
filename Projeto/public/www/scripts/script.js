@@ -1,23 +1,16 @@
-let utilizadores = [];
-let admin = new Object;
-admin.nome = "admin";
-admin.senha = "admin";
-utilizadores.push(admin);
-userAtual = null;
-var userAutenticado = null;
-
 const urlBase = "https://localhost:3002/api";
 
-function openForm() {
-    document.getElementById("myForm").style.display = "block";
-}
-  
-function closeForm() {
-    document.getElementById("myForm").style.display = "none";
+async function makeRequest(url, options) {
+    try {
+        const response = await fetch(url, options);
+        return response;
+    } catch (err) {
+        console.log(err);
+    }
 }
 
 function showForm() {
-    document.getElementById("form").style.display = "block";
+    document.getElementById("formLogin").style.display = "block";
 }
 
 function listar() {
@@ -44,12 +37,102 @@ function listar() {
     return;
 }
 
-function login() {
-    document.getElementById("formLogin").style.display = "block";
-    /*fetch('http://localhost:3002/login') {
+async function login() {
+    const nome = document.getElementById("username").value;
+    const senha = document.getElementById("password").value;
+    const user = {
+        username: nome,
+        password: senha,
+    };
+    const resposta = await makeRequest("https://localhost:3002/login", {
+        method: "POST",
+        body: JSON.stringify(user),
+        headers: { "Content-type": "application/json; charset=UTF-8" },
+    });
+    json = await resposta.json();
+    switch (resposta.status) {
+        case 201:
+            {
+                // login ok
+                document.getElementById("produtos").style.display = "block";
+                document.getElementById("prodnav").style.display = "block";
+                document.getElementById("registar").style.display = "none";
+                document.getElementById("login").style.display = "none"; 
+                document.getElementById("logout").style.display = "inline"; 
+                document.getElementById("inserir").style.display = "inline";
+                document.getElementById("eliminar").style.display = "inline";
+                document.getElementById("procurar").style.display = "inline";
+                document.getElementById("legenda").innerText = "Autenticar";
+                localStorage.setItem("token", json.token);
+                break;
+            }
+        case 401:
+            {
+                // Password errada
+                document.getElementById("pMsg").innerHTML = json.msg;
+                break;
+            }
+        case 404:
+            {
+                // Utilizador não encontrado
+                console.log(json.msg);
+                document.getElementById("pMsg").innerHTML = json.msg;
+                break;
+            }
+    }
+}
 
-    }*/
-    for (us of utilizadores) {
+async function registarEnviar() {
+    const nome = document.getElementById("username").value;
+    const senha = document.getElementById("password").value;
+    const user = {
+        username: nome,
+        password: senha,
+    };
+    const resposta = await makeRequest("https://localhost:3002/registar", {
+        method: "POST",
+        body: JSON.stringify(user),
+        headers: { "Content-type": "application/json; charset=UTF-8" },
+    });
+    json = await resposta.json();
+    switch (resposta.status) {
+        case 409:
+            {
+                // Utilizador já existe
+                document.getElementById("pMsg").innerHTML = json.msg;
+                break;
+            }
+        case 400:
+            {
+                // Password inaceitável
+                document.getElementById("pMsg").innerHTML = json.msg;
+                break;
+            }
+        case 201:
+            {
+                // Utilizador registado
+                document.getElementById("pMsg").innerHTML = json.msg;
+                break;
+            }
+    }
+}
+
+
+/*
+async function login() {
+    const nome = document.getElementById("username").value;
+    const senha = document.getElementById("password").value;
+    const user = {
+        username: nome,
+        password: senha,
+    };
+    const resposta = await makeRequest("https://localhost:3002/login", {
+        method: "POST",
+        body: JSON.stringify(user),
+        headers: { "Content-type": "application/json; charset=UTF-8" },
+    });
+    json = await resposta.json();
+    for (us of user) {
         if (us.nome == user && us.senha == pass) {
             if (us.nome == admin.nome && us.senha == admin.senha) {
                 document.getElementById("produtos").style.display = "block";
@@ -80,6 +163,7 @@ function login() {
     }
     alert("Credenciais inválidas!");
 }
+*/
 
 function myFunction() {
     var x = document.getElementById("topnav");
@@ -99,6 +183,7 @@ function logout() {
     document.getElementById("prodnav").style.display = "none";
 }
 
+/*
 function registar() {
     console.log("Registar");
     let utilizador = new Object();
@@ -107,6 +192,7 @@ function registar() {
     utilizadores.push(utilizador);
     console.log(utilizadores);
 }
+*/
 
 function inserir() {
     let nome = prompt("Nome do produto:");

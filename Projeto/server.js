@@ -1,19 +1,20 @@
 const express = require("express");
 const fs = require("fs");
 const https = require("https");
+const cookieParser = require('cookie-parser');
+const cors = require("cors");
+const jwt = require('jsonwebtoken');
 const app = express();
 
-let db = require("./config/db");
-let utilizadores = require("./config/users.json");
-
-const cors = require("cors");
 bodyParser = require('body-parser');
-const jwt = require('jsonwebtoken');
-app.use(express());
-const cookieParser = require('cookie-parser')
 
-app.use(cookieParser())
+let db = require("./config/db");
+let users = require("./config/users.json"); 
+
 require("dotenv").config();
+
+app.use(express());
+app.use(cookieParser())
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -117,30 +118,24 @@ sslServer.listen(PORT, () => {
     console.log(`Server is running on ${PORT}`);
 });
 
-const prods = [
-    {
-        nome: 'prod1', 
-        tipo: 'tipo1'
-    },
-    {
-        nome: 'prod2', 
-        tipo: 'tipo2'
+
+app.post("/login", (req, res) => {
+    const nome = req.body.username;
+    const senha = req.body.password;
+    for (utilizador of users) {
+        if (utilizador.username === nome)
+            if (utilizador.password === senha) {
+                token = jwt.sign(utilizador, process.env.SECRET);
+                return res.status(201).json({ 
+                    auth: true, 
+                    token: token,
+                 })
+            } else {
+                return res.status(401).json({ msg: "Invalid Password!" })
+            }
     }
-]
-
-app.get("/prods",(req,res) => {
-    res.json(prods);
-})
-
-app.post("/login",(req,res) => {
-    const username = req.body.username;
-    const user = {nome: username};
-    
-    const jwttoken = jwt.sign(user,process.env.ACCESS_TOKEN_SECRET)
-
-    res.send({Token: jwttoken });
-
-})
+    return res.status(404).json({ msg: "User not found!" })
+});
 
 app.listen(3000);
 
@@ -190,25 +185,6 @@ app.post("/registar", (req, res) => {
             msg: 'Utilizador já existe'
         });
     }
-});
-
-app.post("/login", (req, res) => {
-    const nome = req.body.username;
-    const senha = req.body.password;
-    for (utilizador of users) {
-        if (utilizador.username === nome)
-            if (utilizador.password === senha) {
-                token = jwt.sign(utilizador, process.env.SECRET);
-                return res.status(201).json({ 
-                    auth: true, 
-                    token: token,
-                //msg: getFavoritos(utilizador.username) 
-            })
-            } else {
-                return res.status(401).json({ msg: "Password inválida!" })
-            }
-    }
-    return res.status(404).json({ msg: "Utilizador não encontrado!" })
 });
 
 function validarToken(token) {

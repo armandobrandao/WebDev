@@ -21,7 +21,7 @@
                 <a href="#sobrenos">Sobre Nós</a>
                 <a href="#suporte">Suporte</a>
                
-                <a id="login" class="login" onclick="login()">Login</a>
+                <a id="login" class="login" onclick="showForm()">Login</a>
                 <a id="registar" class="registar" onclick="registar()">Registar</a>
                 <a id="logout" class="logout" onclick="logout()">Logout</a>
                 
@@ -39,23 +39,17 @@
 
                 <div id="formLogin" class="formLogin">
                     <fieldset>
-                        <div class="closeForm">&times;</div>
-                        <div class="formElement">
-                            <label for="username">Username:</label>
-                            <input type="text" name="username" id="username"/><br/>
-                        </div>
-                        <div class="formElement"></div>
-                            <label for="password">Password</label>
-                            <input type="password" name="password" id="password"/>
-                        </div>
-                        <div class="formElement">
-                            <button id="btnLogin" onclick="login()">Enviar</button>
-                        </div>
-                        <div class="formElement"></div>
-                            <button id="btnRegistar" onclick="registarEnviar()" style="display: none">Enviar Registo</button>
-                        </div>
+                        <legend id="legenda"></legend>
+                        <label for="username">Username:</label>
+                        <input type="text" name="username" id="username" /><br />
+                        <label for="password">Password</label>
+                        <input type="password" name="password" id="password" />
+                        <button id="btnLogin" onclick="login()">Enviar</button>
+                        <button id="btnRegistar" onclick="registarEnviar()" style="display: none">Enviar Registo</button>
                     </fieldset>
                 </div>
+
+
             </header>
 
             <div id="servicos" class="w3-justify w3-padding-64">
