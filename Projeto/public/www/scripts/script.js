@@ -9,8 +9,12 @@ async function makeRequest(url, options) {
     }
 }
 
-function showForm() {
+function showFormLogin() {
     document.getElementById("formLogin").style.display = "block";
+}
+
+function showFormRegistar() {
+    document.getElementById("formRegistar").style.display = "block";
 }
 
 function listar() {
@@ -68,21 +72,21 @@ async function login() {
             }
         case 401:
             {
-                document.getElementById("pMsg").innerHTML = json.msg;
+                document.getElementById("cMsg").innerHTML = json.msg;
                 break;
             }
         case 404:
             {
                 console.log(json.msg);
-                document.getElementById("pMsg").innerHTML = json.msg;
+                document.getElementById("cMsg").innerHTML = json.msg;
                 break;
             }
     }
 }
 
 async function registar() {
-    const nome = document.getElementById("username").value;
-    const senha = document.getElementById("password").value;
+    const nome = document.getElementById("regUsername").value;
+    const senha = document.getElementById("regPassword").value;
     const user = {
         username: nome,
         password: senha,
@@ -131,6 +135,7 @@ function logout() {
     document.getElementById("registar").style.display = "inline";
     document.getElementById("produtos").style.display = "none";
     document.getElementById("prodnav").style.display = "none";
+    localStorage.removeItem("token");
 }
 
 function inserir() {

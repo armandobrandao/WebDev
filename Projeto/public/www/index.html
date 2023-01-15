@@ -24,8 +24,8 @@
             <a href="#sobrenos">Sobre Nós</a>
             <a href="#suporte">Suporte</a>
     
-            <a id="login" class="login" onclick="showForm()">Login</a>
-            <a id="registar" class="registar" onclick="showForm()">Registar</a>
+            <a id="login" class="login" onclick="showFormLogin()">Login</a>
+            <a id="registar" class="registar" onclick="showFormRegistar()">Registar</a>
             <a id="logout" class="logout" onclick="logout()">Logout</a>
 
             <a href="javascript:void(0);" class="icon" onclick="myFunction()"><i class="fa fa-bars"></i></a>
@@ -40,14 +40,53 @@
                 </center>
             </div>
 
-            <div id="formLogin" class="formLogin">
+            <script>
+                function closeForm() {
+                        document.getElementById("formLogin").style.display = "none";
+                        document.getElementById("formRegistar").style.display = "none";
+                        document.getElementById("username").value = '';
+                        document.getElementById("password").value = '';
+                        document.getElementById("regUsername").value = '';
+                        document.getElementById("regPassword").value = '';
+                    }
+                document.addEventListener("DOMContentLoaded", function() {
+                    function addKeydownEvent(id) {
+                        document.getElementById(id).addEventListener("keydown", function(event) {
+                            if (event.key === "Enter") {
+                                if(id === "username" || id === "password")
+                                    document.getElementById("Login").click();
+                                else 
+                                    document.getElementById("Registar").click();
+                            }
+                        });
+                    }
+                    addKeydownEvent("username");
+                    addKeydownEvent("password");
+                    addKeydownEvent("regUsername");
+                    addKeydownEvent("regPassword");
+                });
+            </script>
+
+            <div id="formLogin" class="formLogin" style="display:none">
                 <h2>Login</h2>
-                <div class="closeForm">&times;</div>
+                <div class="closeForm" onclick="closeForm()">&times;</div>
                 <label for="username">Username:</label>
                 <input type="text" name="username" id="username" placeholder="Insira o seu username" />
                 <label for="password">Password:</label>
                 <input type="password" name="password" id="password" placeholder="Insira a sua password" />
-                <button id="btnLogin" onclick="login()">Enviar</button>
+                <button id="Login" onclick="login()">Enviar</button>
+                <p id="cMsg"></p>
+            </div>
+
+            <div id="formRegistar" class="formLogin" style="display:none">
+                <h2>Registar</h2>
+                <div class="closeForm" onclick="closeForm()">&times;</div>
+                <label for="regUsername">Username:</label>
+                <input type="text" name="regUsername" id="regUsername" placeholder="Insira o seu username" />
+                <label for="regPassword">Password:</label>
+                <input type="password" name="regPassword" id="regPassword" placeholder="Insira a sua password" />
+                <button id="Registar" onclick="registar()">Enviar Registo</button>
+                <p id="pMsg"></p>
             </div>
 
         </header>
@@ -134,7 +173,7 @@
             </div>
             <br><br>
 
-            <div id="prodclass=" row">
+            <div id="prodList" class="row">
                 <div class="columnleft imagebox2">
                     <h3><b>Monkey Phone</b></h3>
                     <br><br>

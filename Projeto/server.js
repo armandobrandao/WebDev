@@ -29,6 +29,11 @@ app.use((req, res, next) => {
     req.secure ? next() : res.redirect('https://' + req.headers.host + req.url)
 })
 
+app.use(express.static('public/www'));
+sslServer.listen(PORT, () => {
+    console.log(`Server is running on ${PORT}`);
+});
+
 app.use(cors());
 app.options('*', cors()) 
 
@@ -112,12 +117,6 @@ app.delete("/delete/:id", (req, res) => {
     console.log(result);
     res.send(result);
 });
-
-app.use(express.static('public/www'));
-sslServer.listen(PORT, () => {
-    console.log(`Server is running on ${PORT}`);
-});
-
 
 app.post("/login", (req, res) => {
     const nome = req.body.username;
