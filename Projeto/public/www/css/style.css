@@ -256,7 +256,7 @@ hr.style-one {
   color: whitesmoke;
 }
 
-/*
+
 .formLogin {
   position:absolute;
   top:50%;
@@ -267,6 +267,11 @@ hr.style-one {
   background: white;
   box-shadow: 2px 2px 5px 5px rgba(0,0,0,0.15);
   border-radius: 10px;
+}
+
+.formLogin .active {
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .formLogin .closeForm {
@@ -290,25 +295,26 @@ hr.style-one {
   font-size:25px;
 }
 
-.formLogin .formElement {
+.formLogin input {
   margin:15px 0px;
 }
 
-.formLogin .formElement label{
+.formLogin label{
   font-size:14px;
   color:black;
 }
 
-.formLogin .formElement input[type="text"], .formLogin .formElement input[type="password"] {
+.formLogin input[type="text"], .formLogin input[type="password"] {
   margin-top:5px;
   display:block;
   width:100%;
   padding:10px;
+  outline:none;
   border:1px solid #aaa;
   border-radius: 5px;
 }
 
-.formLogin .formElement button {
+.formLogin button {
   width:100%;
   height:40px;
   border:none;
@@ -319,4 +325,3 @@ hr.style-one {
   border-radius:10px;
   cursor:pointer;
 }
-*/
