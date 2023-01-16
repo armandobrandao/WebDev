@@ -17,6 +17,10 @@ function showFormRegistar() {
     document.getElementById("formRegistar").style.display = "block";
 }
 
+function showFormCart() {
+    document.getElementById("formCart").style.display = "block";
+}
+
 function listar() {
     fetch('https://localhost:3002/getProds', {
         method: "GET",
@@ -67,6 +71,7 @@ async function login() {
                     document.getElementById("inserir").style.display = "inline";
                     document.getElementById("eliminar").style.display = "inline";
                     document.getElementById("procurar").style.display = "inline";
+                    document.getElementById("cart").style.display = "block";
                     document.getElementById("legenda").innerText = "Autenticar";
                     localStorage.setItem("token", json.token);
                     break;
@@ -81,6 +86,7 @@ async function login() {
                     document.getElementById("inserir").style.display = "none";
                     document.getElementById("eliminar").style.display = "none";
                     document.getElementById("procurar").style.display = "none";
+                    document.getElementById("cart").style.display = "block";
                     document.getElementById("legenda").innerText = "Autenticar";
                     localStorage.setItem("token", json.token);
                     break;
@@ -210,4 +216,52 @@ document.querySelector("login").addEventListener("click", function() {
 */
 function close() {
     document.getElementById("formLogin").style.display = "none";
+}
+
+// Initialize an empty cart
+let cart = {};
+
+// Add item to cart
+function addToCart(product, quantity) {
+    if (!cart[product]) {
+        cart[product] = {
+            quantity: quantity,
+            price: document.getElementById(product + "-price").innerText
+        };
+    } else {
+        cart[product].quantity += quantity;
+    }
+    cart[product].name = document.getElementById(product + "-name").innerText;
+    updateCart();
+}
+
+// Remove item from cart
+function removeFromCart(product) {
+    if (cart[product]) {
+        cart[product].quantity--;
+        if (cart[product].quantity === 0) {
+            delete cart[product];
+        }
+        updateCart();
+    }
+}
+
+// Update the cart UI
+function updateCart() {
+    let cartItems = document.getElementById("cart-items");
+    cartItems.innerHTML = "";
+    let cartTotal = 0;
+    for (let product in cart) {
+        let tr = document.createElement("tr");
+        tr.innerHTML = `<td>${cart[product].name}</td><td>${cart[product].quantity}</td><td>${cart[product].price}</td><td>${cart[product].quantity * cart[product].price}</td><td><button onclick="removeFromCart('${product}')">Remove</button></td>`;
+        cartItems.appendChild(tr);
+        cartTotal += cart[product].quantity * cart[product].price;
+    }
+    document.getElementById("cart-total").innerText = cartTotal;
+    let checkoutButton = document.getElementById("checkout-button");
+    if (Object.keys(cart).length === 0) {
+        checkoutButton.disabled = true;
+    } else {
+        checkoutButton.disabled = false;
+    }
 }

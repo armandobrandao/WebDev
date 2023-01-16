@@ -24,6 +24,7 @@
             <a href="#sobrenos">Sobre Nós</a>
             <a href="#suporte">Suporte</a>
     
+            <a id="cart" class="cart" onclick="showFormCart()">Carrinho</a>
             <a id="login" class="login" onclick="showFormLogin()">Login</a>
             <a id="registar" class="registar" onclick="showFormRegistar()">Registar</a>
             <a id="logout" class="logout" onclick="logout()">Logout</a>
@@ -44,6 +45,7 @@
                 function closeForm() {
                         document.getElementById("formLogin").style.display = "none";
                         document.getElementById("formRegistar").style.display = "none";
+                        document.getElementById("formCart").style.display = "none";
                         document.getElementById("username").value = '';
                         document.getElementById("password").value = '';
                         document.getElementById("regUsername").value = '';
@@ -87,6 +89,33 @@
                 <input type="password" name="regPassword" id="regPassword" placeholder="Insira a sua password" />
                 <button id="Registar" onclick="registar()">Enviar Registo</button>
                 <p id="pMsg"></p>
+            </div>            
+
+            <div id="formCart" class="formCart"  style="display:none">
+                <div id="shopping-cart">
+                    <h2>Carrinho de compras</h2>
+                    <div class="closeForm" onclick="closeForm()">&times;</div>
+                    <table>
+                      <thead>
+                        <tr>
+                          <th>Produtos</th>
+                          <th>Quantidade</th>
+                          <th>Preço</th>
+                          <th>Total</th>
+                          <th>Status</th>
+                        </tr>
+                      </thead>
+                      <tbody id="cart-items">
+                      </tbody>
+                      <tfoot>
+                        <tr>
+                          <td colspan="3">Total:</td>
+                          <td id="cart-total"></td>
+                        </tr>
+                      </tfoot>
+                    </table>
+                    <button id="checkout-button" disabled>Checkout</button>
+                </div>
             </div>
 
         </header>
@@ -175,7 +204,12 @@
 
             <div id="prodList" class="row">
                 <div class="columnleft imagebox2">
-                    <h3><b>Monkey Phone</b></h3>
+                    <div class="product">
+                        <h3><b>Monkey Phone</b></h3>
+                        <p id="product1-name">Monkey Phone</p>
+                        <p id="product1-price">499</p>
+                        <button id="addCart" onclick="addToCart('product1', 1)">Adicionar ao carrinho</button>
+                    </div>
                     <br><br>
                     <div class="zoom">
                         <img src="images/10.png" style="max-width:100%; height:auto;">
@@ -185,7 +219,12 @@
                 </div>
 
                 <div class="columnleft imagebox2">
-                    <h3><b>iMonkey</b></h3>
+                    <div class="product">
+                        <h3><b>iMonkey</b></h3>
+                        <p id="product2-name">iMonkey</p>
+                        <p id="product2-price">799</p>
+                        <button id="addCart" onclick="addToCart('product2', 1)">Adicionar ao carrinho</button>
+                    </div>
                     <br><br>
                     <div class="zoom">
                         <img src="images/2.png" style="max-width:100%; height:auto;">
@@ -195,7 +234,12 @@
                 </div>
 
                 <div class="columnleft imagebox2">
-                    <h3><b>MonkeyMi</b></h3>
+                    <div class="product">
+                        <h3><b>MonkeyMi</b></h3>
+                        <p id="product3-name">MonkeyMi</p>
+                        <p id="product3-price">399</p>
+                        <button id="addCart" onclick="addToCart('product3', 1)">Adicionar ao carrinho</button>
+                    </div>
                     <br><br>
                     <div class="zoom">
                         <img src="images/9.png" style="max-width:100%; height:auto;">
@@ -205,7 +249,12 @@
                 </div>
 
                 <div class="columnleft imagebox2">
-                    <h3><b>Monkeysung</b></h3>
+                    <div class="product">
+                        <h3><b>Monkeysung</b></h3>
+                        <p id="product4-name">Monkeysung</p>
+                        <p id="product4-price">899</p>
+                        <button id="addCart" onclick="addToCart('product4', 1)">Adicionar ao carrinho</button>
+                    </div>
                     <br><br>
                     <div class="zoom">
                         <img src="images/5.png" style="max-width:100%; height:auto;">
