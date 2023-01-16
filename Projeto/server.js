@@ -8,7 +8,7 @@ const app = express();
 
 bodyParser = require('body-parser');
 
-let db = require("./config/db");
+let db = require("./config/products.json");
 let users = require("./config/users.json"); 
 
 require("dotenv").config();
@@ -90,9 +90,10 @@ app.post("/create", (req, res) => {
         "id": newID,
         "nome": nome,
         "url": url,
-        "preco": preco
+        "preco": preco + "€"
     }
     db.push(newProduct);
+    escreve("./config/products.json", db);
     result = newProduct;
     res.send(result);
 });
@@ -114,6 +115,7 @@ app.delete("/delete/:id", (req, res) => {
     for (let i = 0; i < dbAux.length; i++) {
         db.push(dbAux[i]); // copia os dados
     }
+    escreve("./config/products.json", db);
     console.log(result);
     res.send(result);
 });

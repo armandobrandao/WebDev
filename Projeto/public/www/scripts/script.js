@@ -21,6 +21,32 @@ function showFormCart() {
     document.getElementById("formCart").style.display = "block";
 }
 
+function closeForm() {
+    document.getElementById("formLogin").style.display = "none";
+    document.getElementById("formRegistar").style.display = "none";
+    document.getElementById("formCart").style.display = "none";
+    document.getElementById("username").value = '';
+    document.getElementById("password").value = '';
+    document.getElementById("regUsername").value = '';
+    document.getElementById("regPassword").value = '';
+}
+document.addEventListener("DOMContentLoaded", function() {
+function addKeydownEvent(id) {
+    document.getElementById(id).addEventListener("keydown", function(event) {
+        if (event.key === "Enter") {
+            if(id === "username" || id === "password")
+                document.getElementById("Login").click();
+            else 
+                document.getElementById("Registar").click();
+        }
+    });
+}
+addKeydownEvent("username");
+addKeydownEvent("password");
+addKeydownEvent("regUsername");
+addKeydownEvent("regPassword");
+});
+
 function listar() {
     fetch('https://localhost:3002/getProds', {
         method: "GET",
@@ -31,13 +57,16 @@ function listar() {
         let lista = "";
         for (prod of json) {
             lista += '<div class="columnleft imagebox2">';
-            lista += '<h3><b>' + prod.nome + '</b></h3>';
+            lista += '<div class="product">';
+            lista += '<h3 id="product' + prod.id + '-name"><b>' + prod.nome + '</b></h3>';
+            lista += '</div>';
             lista += '<br><br>';
             lista += '<div class="zoom">';
             lista += '<img src="' + prod.url + '"style="max-width:100%; height:auto;">';
             lista += '</div>';
             lista += '<br><br>';
-            lista += '<p>' + prod.nome + ' - ' + prod.preco + '</p>';
+            lista += '<button id="addCart" onclick="addToCart(`product' + prod.id + '`, 1)"> Adicionar ao carrinho</button>';
+            lista += '<p id="product' + prod.id + '-price">' + prod.preco + '</p>';
             lista += '</div>';
         }
         document.getElementById("prodList").innerHTML = lista;
@@ -85,7 +114,7 @@ async function login() {
                     document.getElementById("logout").style.display = "inline"; 
                     document.getElementById("inserir").style.display = "none";
                     document.getElementById("eliminar").style.display = "none";
-                    document.getElementById("procurar").style.display = "none";
+                    document.getElementById("procurar").style.display = "inline";
                     document.getElementById("cart").style.display = "block";
                     document.getElementById("legenda").innerText = "Autenticar";
                     localStorage.setItem("token", json.token);
@@ -158,6 +187,7 @@ function logout() {
     document.getElementById("registar").style.display = "inline";
     document.getElementById("produtos").style.display = "none";
     document.getElementById("prodnav").style.display = "none";
+    document.getElementById("cart").style.display = "none";
     localStorage.removeItem("token");
 }
 
@@ -196,24 +226,22 @@ function procurar() {
     .then(response => response.json())
     .then(json => {
         let lista = "";
-        lista += '<div class="columnleft imagebox2">';
-        lista += '<h3><b>' + json.nome + '</b></h3>';
+        lista += '<div class="columnleft imagebox2" style="margin: 0 auto">';
+        lista += '<div class="product">';
+        lista += '<h3 id="product' + json.id + '-name"><b>' + json.nome + '</b></h3>';
+        lista += '</div>';
         lista += '<br><br>';
         lista += '<div class="zoom">';
         lista += '<img src="' + json.url + '"style="max-width:100%; height:auto;">';
         lista += '</div>';
         lista += '<br><br>';
-        lista += '<p>' + json.nome + ' - ' + json.preco + '</p>';
+        lista += '<button id="addCart" onclick="addToCart(`product' + json.id + '`, 1)"> Adicionar ao carrinho</button>';
+        lista += '<p id="product' + json.id + '-price">' + json.preco + '</p>';
         lista += '</div>';
         document.getElementById("prodList").innerHTML = lista;
     });
 }
 
-/*
-document.querySelector("login").addEventListener("click", function() {
-    document.querySelector(".formLogin").classList.add("active")
-});
-*/
 function close() {
     document.getElementById("formLogin").style.display = "none";
 }

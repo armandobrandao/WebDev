@@ -79,7 +79,7 @@ body {
   opacity: 0.8;
   position: absolute;
   top: 0px;
-  right: 200px;
+  right: 100px;
   width: 100px;
   transition: 0.3s;
 }
@@ -122,7 +122,7 @@ body {
   position: absolute;
   top: 0px;
   right: 0px;
-  width: 200px;
+  width: 100px;
   transition: 0.3s;
 }
 
@@ -212,9 +212,11 @@ hr.style-one {
 
 .prodbar {
   background-color: #1d1d1d;
-  width: 100%;
+  width: 60%;
   transition: 0.3s;
   color: white;
+  border-radius: 10px;
+  margin: 0 auto;
 }
 
 .procurar {
@@ -222,7 +224,7 @@ hr.style-one {
   background-color: #1d1d1d;
   color: white;
   text-align: center;
-  padding: 17px 10px;
+  padding: 15px 10px;
   border: none;
   cursor: pointer;
   opacity: 0.8;
@@ -235,7 +237,7 @@ hr.style-one {
   background-color: #1d1d1d;
   color: white;
   text-align: center;
-  padding: 17px 10px;
+  padding: 15px 10px;
   border: none;
   cursor: pointer;
   opacity: 0.8;
@@ -247,7 +249,7 @@ hr.style-one {
   background-color: #1d1d1d;
   color: white;
   text-align: center;
-  padding: 17px 10px;
+  padding: 15px 10px;
   border: none;
   cursor: pointer;
   opacity: 0.8;
@@ -403,9 +405,10 @@ hr.style-one {
 }
 
 .formCart {
+  z-index: 1;
   position:fixed;
   top:22%;
-  left:82%;
+  left:85%;
   transform:translate(-50%, -50%);
   width:600px;
   padding:20px 30px;
@@ -456,4 +459,21 @@ hr.style-one {
   color: white;
   border-radius:10px;
   cursor:pointer;
+}
+
+#addCart {
+  z-index: 1;
+  background-color: #c2a710;
+  color: black;
+  padding: 10px 10px;
+  border: none;
+  cursor: pointer;
+  opacity: 0.8;
+  width: 200px;
+  transition: 0.3s;
+  border-radius: 10px;
+}
+
+#addCart:hover {
+  opacity: 1;
 }

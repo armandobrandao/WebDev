@@ -41,33 +41,7 @@
                 </center>
             </div>
 
-            <script>
-                function closeForm() {
-                        document.getElementById("formLogin").style.display = "none";
-                        document.getElementById("formRegistar").style.display = "none";
-                        document.getElementById("formCart").style.display = "none";
-                        document.getElementById("username").value = '';
-                        document.getElementById("password").value = '';
-                        document.getElementById("regUsername").value = '';
-                        document.getElementById("regPassword").value = '';
-                    }
-                document.addEventListener("DOMContentLoaded", function() {
-                    function addKeydownEvent(id) {
-                        document.getElementById(id).addEventListener("keydown", function(event) {
-                            if (event.key === "Enter") {
-                                if(id === "username" || id === "password")
-                                    document.getElementById("Login").click();
-                                else 
-                                    document.getElementById("Registar").click();
-                            }
-                        });
-                    }
-                    addKeydownEvent("username");
-                    addKeydownEvent("password");
-                    addKeydownEvent("regUsername");
-                    addKeydownEvent("regPassword");
-                });
-            </script>
+          
 
             <div id="formLogin" class="formLogin" style="display:none">
                 <h2>Login</h2>
@@ -205,62 +179,54 @@
             <div id="prodList" class="row">
                 <div class="columnleft imagebox2">
                     <div class="product">
-                        <h3><b>Monkey Phone</b></h3>
-                        <p id="product1-name">Monkey Phone</p>
-                        <p id="product1-price">499</p>
-                        <button id="addCart" onclick="addToCart('product1', 1)">Adicionar ao carrinho</button>
+                        <h3 id="product1-name"><b>Monkey Phone</b></h3>
                     </div>
-                    <br><br>
+                    <br>
                     <div class="zoom">
                         <img src="images/10.png" style="max-width:100%; height:auto;">
                     </div>
                     <br><br>
-                    <p>Monkey Phone - 499€</p>
+                    <button id="addCart" onclick="addToCart('product1', 1)">Adicionar ao carrinho</button>
+                    <p id="product1-price">499€</p>
                 </div>
 
                 <div class="columnleft imagebox2">
                     <div class="product">
-                        <h3><b>iMonkey</b></h3>
-                        <p id="product2-name">iMonkey</p>
-                        <p id="product2-price">799</p>
-                        <button id="addCart" onclick="addToCart('product2', 1)">Adicionar ao carrinho</button>
+                        <h3 id="product2-name"><b>iMonkey</b></h3>
                     </div>
-                    <br><br>
+                    <br>
                     <div class="zoom">
                         <img src="images/2.png" style="max-width:100%; height:auto;">
                     </div>
                     <br><br>
-                    <p>iMonkey - 799€</p>
+                    <button id="addCart" onclick="addToCart('product2', 1)">Adicionar ao carrinho</button>
+                    <p id="product2-price">799€</p>
                 </div>
 
                 <div class="columnleft imagebox2">
                     <div class="product">
-                        <h3><b>MonkeyMi</b></h3>
-                        <p id="product3-name">MonkeyMi</p>
-                        <p id="product3-price">399</p>
-                        <button id="addCart" onclick="addToCart('product3', 1)">Adicionar ao carrinho</button>
+                        <h3 id="product3-name"><b>MonkeyMi</b></h3>   
                     </div>
-                    <br><br>
+                    <br>
                     <div class="zoom">
                         <img src="images/9.png" style="max-width:100%; height:auto;">
                     </div>
                     <br><br>
-                    <p>MonkeyMi 10S - 399€</p>
+                    <button id="addCart" onclick="addToCart('product3', 1)">Adicionar ao carrinho</button>
+                    <p id="product3-price">399€</p>
                 </div>
 
                 <div class="columnleft imagebox2">
                     <div class="product">
-                        <h3><b>Monkeysung</b></h3>
-                        <p id="product4-name">Monkeysung</p>
-                        <p id="product4-price">899</p>
-                        <button id="addCart" onclick="addToCart('product4', 1)">Adicionar ao carrinho</button>
+                        <h3 id="product4-name"><b>Monkeysung</b></h3>
                     </div>
-                    <br><br>
+                    <br>
                     <div class="zoom">
                         <img src="images/5.png" style="max-width:100%; height:auto;">
                     </div>
                     <br><br>
-                    <p>Monkeysung S20 - 899€</p>
+                    <button id="addCart" onclick="addToCart('product4', 1)">Adicionar ao carrinho</button>
+                    <p id="product4-price">899€</p>
                 </div>
             </div>
         </div>
