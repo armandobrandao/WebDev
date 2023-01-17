@@ -5,6 +5,7 @@ const cookieParser = require('cookie-parser');
 const cors = require("cors");
 const jwt = require('jsonwebtoken');
 const app = express();
+const bcrypt = require("bcrypt");
 
 bodyParser = require('body-parser');
 
@@ -19,11 +20,11 @@ app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-const PORT = process.env.PORT || 3002; 
+const PORT = process.env.PORT || 3002;
 
 const sslServer = https.createServer({
     key: fs.readFileSync('cert/key.pem'),
-    cert:fs.readFileSync('cert/certificate.pem')
+    cert: fs.readFileSync('cert/certificate.pem')
 }, app)
 
 app.use((req, res, next) => {
@@ -43,7 +44,7 @@ sslServer.listen(PORT, () => {
 });
 
 app.use(cors());
-app.options('*', cors()) 
+app.options('*', cors())
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -128,21 +129,25 @@ app.delete("/delete/:id", (req, res) => {
     res.send(result);
 });
 
-app.post("/login", (req, res) => {
+app.post("/login", async (req, res) => {
     const nome = req.body.username;
     const senha = req.body.password;
-    for (utilizador of users) {
+    try {
+        for (utilizador of users) {
         if (utilizador.username === nome)
-            if (utilizador.password === senha) {
+            if (await bcrypt.compare(senha, utilizador.password)) {
                 token = jwt.sign(utilizador, process.env.SECRET);
-                return res.status(201).json({ 
-                    auth: true, 
+                return res.status(201).json({
+                    auth: true,
                     token: token,
-                 })
+                })
             } else {
                 return res.status(401).json({ msg: "Invalid Password!" })
             }
+    }} catch {
+        res.status(500).send();
     }
+
     return res.status(404).json({ msg: "User not found!" })
 });
 
@@ -152,8 +157,8 @@ function authenticateToken(req, res, next) {
     const authHeader = req.headers["autorization"]
     const token = authHeader && authHeader.split(" ")[1]
     if (token == null) return res.sendStatus(401)
-    
-    jwt.verify (token, process.env.ACCESS_TOKEN_SECRET, (err, user) => {
+
+    jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, user) => {
         if (err) return res.sendStatus(403)
         req.user = user
         next()
@@ -164,28 +169,34 @@ app.get("/posts", authenticateToken, (req, res) => {
     res.json(posts.filter(post => post.username === req.user.name))
 })
 
-app.post("/registar", (req, res) => {
-    const username = req.body.username;
-    if (!existeUser(username)) {
-        const newUser = {
-            username: username,
-            password: req.body.password,
-            type: 0
-        }
-        if (newUser.password.length < 5) {
-            return res.status(400).send({
-                msg: 'Password deve ter 5 ou mais caracteres'
+app.post("/registar", async (req, res) => {
+    try {
+        const salt = await bcrypt.genSalt();
+        const hashedPassword = await bcrypt.hash(req.body.password, salt);
+        const username = req.body.username;
+        if (!existeUser(username)) {
+            const newUser = {
+                username: username,
+                password: hashedPassword,
+                type: 0
+            }
+            if (newUser.password.length < 5) {
+                return res.status(400).send({
+                    msg: 'Password deve ter 5 ou mais caracteres'
+                });
+            }
+            users.push(newUser);
+            escreve("./config/users.json", users);
+            return res.status(201).send({
+                msg: `Criado utilizador ${username}`
+            });
+        } else {
+            return res.status(409).send({
+                msg: 'Utilizador já existe'
             });
         }
-        users.push(newUser);
-        escreve("./config/users.json", users);
-        return res.status(201).send({
-            msg: `Criado utilizador ${username}`
-        });
-    } else {
-        return res.status(409).send({
-            msg: 'Utilizador já existe'
-        });
+    } catch {
+        res.status(500).send();
     }
 });
 
@@ -200,14 +211,14 @@ function validarToken(token) {
 const request = require('request');
 
 const options = {
-  method: 'GET',
-  url: 'https://covid-193.p.rapidapi.com/statistics',
-  qs: {country: 'portugal'},
-  headers: {
-    'X-RapidAPI-Key': '05f70cb088mshc5761916a74abaap1de996jsnabbb04367815',
-    'X-RapidAPI-Host': 'covid-193.p.rapidapi.com',
-    useQueryString: true
-  }
+    method: 'GET',
+    url: 'https://covid-193.p.rapidapi.com/statistics',
+    qs: { country: 'portugal' },
+    headers: {
+        'X-RapidAPI-Key': '05f70cb088mshc5761916a74abaap1de996jsnabbb04367815',
+        'X-RapidAPI-Host': 'covid-193.p.rapidapi.com',
+        useQueryString: true
+    }
 };
 
 // Route to get all posts
