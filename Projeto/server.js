@@ -9,12 +9,13 @@ const app = express();
 bodyParser = require('body-parser');
 
 let db = require("./config/products.json");
-let users = require("./config/users.json"); 
+let users = require("./config/users.json");
+let servs = require("./config/services.json");
 
 require("dotenv").config();
 
 app.use(express());
-app.use(cookieParser())
+app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -209,4 +210,63 @@ const options = {
   }
 };
 
+// Route to get all posts
+app.get("/getServs", cors(), (req, res) => {
+    result = servs;
+    res.send(result);
+});
 
+// Route to get one post
+app.get("/:idServ", (req, res) => {
+    const id = req.params.id;
+    result = "";
+    for (var serv of servs) {
+        if (serv.id.toString() === id) {
+            console.log(`Service id: ${serv.id}`);
+            result = serv;
+            break;
+        }
+    }
+    res.send(result);
+});
+
+// Route for creating the post
+app.post("/createServ", (req, res) => {
+    newID = servs.length + 1;
+    const nome = req.body.nome;
+    const url = req.body.url;
+    const preco = req.body.preco;
+    console.log(req.body);
+    console.log(newID, nome, url, preco);
+    const newService = {
+        "id": newID,
+        "nome": nome,
+        "url": url,
+        "preco": preco + "€"
+    }
+    servs.push(newService);
+    escreve("./config/services.json", servs);
+    result = newService;
+    res.send(result);
+});
+
+// Route to delete a post
+app.delete("/deleteServ/:idServ", (req, res) => {
+    const id = req.params.id;
+    let result = null;
+    let servAux = [];
+    for (serv of servs) {
+        if (serv.id.toString() === id) {
+            result = serv;
+        } else {
+            servAux.push(serv);
+        }
+    }
+    servs = [];
+    for (let i = 0; i < servAux.length; i++) {
+        servs.push(servAux[i]); // copia os dados
+    }
+    escreve("./config/services.json", servs);
+    console.log(result);
+    res.send(result);
+});

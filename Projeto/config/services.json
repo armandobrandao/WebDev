@@ -1,0 +1,14 @@
+[
+    {
+        "id": 1,
+        "nome": "Reparação de Telemóvel",
+        "url": "../images/monkereparing.jpg",
+        "preco": "49€"
+    },
+    {
+        "id": 2,
+        "nome": "Formatação de Telemóvel",
+        "url": "../images/monkeyMad.png",
+        "preco": "19€"
+    }
+]

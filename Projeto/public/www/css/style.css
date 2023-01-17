@@ -88,6 +88,12 @@ body {
     max-width: 50%;
     margin-right: 100px;
   }
+  #prodList {
+    display: block!important;
+  }
+  .columnleft {
+    width: 100%!important;
+  }
 }
 
 .cart {
@@ -191,6 +197,11 @@ body {
 }
 
 #prodList {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#servList {
   display: flex;
   flex-wrap: wrap;
 }

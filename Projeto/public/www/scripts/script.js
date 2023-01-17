@@ -79,6 +79,31 @@ function listar() {
     return;
 }
 
+function listarServico() {
+    fetch('https://localhost:3002/getServs', {
+        method: "GET",
+        headers: { "Content-type": "application/json;charset=UTF-8" }
+    })
+    .then(response => response.json())
+    .then(json => {
+        let lista = "";
+        for (serv of json) {
+            lista += '<div class="columnleft imagebox2">';
+            lista += '<h3 id="service' + serv.id + '-name"><b>' + serv.nome + '</b></h3>';
+            lista += '<br>';
+            lista += '<div class="zoom">';
+            lista += '<img src="' + serv.url + '"style="max-width:100%; height:auto;">';
+            lista += '</div>';
+            lista += '<br><br>';
+            lista += '<button id="addCart" onclick="addToCart(`service' + serv.id + '`, 1)"> Adicionar ao carrinho</button>';
+            lista += '<p id="service' + serv.id + '-price">' + serv.preco + '</p>';
+            lista += '</div>';
+        }
+        document.getElementById("servList").innerHTML = lista;
+    });
+    return;
+}
+
 async function login() {
     document.getElementById("html").style.overflowY = "scroll";
     const nome = document.getElementById("username").value;
@@ -214,6 +239,22 @@ function inserir() {
         body: JSON.stringify(prod)
     })
     listar();
+}
+
+function inserirServico() {
+    let nome = prompt("Nome do produto:");
+    let url = prompt("URL da imagem do produto:");
+    let preco = prompt("Preço do produto:");
+    let serv = new Object();
+    serv.nome = nome;
+    serv.url = url;
+    serv.preco = preco;
+    fetch('https://localhost:3002/createServ', {
+        method: "POST",
+        headers: { "Content-type": "application/json;charset=UTF-8" },
+        body: JSON.stringify(serv)
+    })
+    listarServico();
 }
 
 function eliminar() {
