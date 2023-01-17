@@ -3,10 +3,5 @@
         "username": "admin",
         "password": "$2b$10$LhOd4NN3C4yZR9XEGtjd9eCjgcfxYB13tWjDBGsfhz7nkfgnrdYfO",
         "type": 1
-    },
-    {
-        "username": "juan",
-        "password": "$2b$10$Hubz4K6NgZK40EiPgK3DP.RwSfekQmjo3MTtixn/7uDZB0/XER/QS",
-        "type": 0
     }
 ]
