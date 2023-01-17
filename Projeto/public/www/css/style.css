@@ -1,8 +1,8 @@
-#produtos {display:none}
 #cart {display:none}
 #logout {display:none}
-#prodnav {display:none}
 #formLogin {display:none}
+#produtos {display:none}
+#prodnav {display:none}
 
 html {
   scroll-behavior: smooth;
@@ -165,8 +165,8 @@ body {
 .footer {
   position: relative;
   left: 0;
-  bottom: -14px;
   width: 100%;
+  padding: 3px 0px;
   background-color: #1d1d1d;
   color: white;
   text-align: center;
@@ -487,8 +487,8 @@ hr.style-one {
 
 #addCart {
   z-index: 1;
-  background-color: #c2a710;
-  color: black;
+  background-color: rgba(85, 82, 82, 0.76);
+  color: white;
   padding: 10px 10px;
   border: none;
   cursor: pointer;
@@ -509,9 +509,11 @@ hr.style-one {
 #btnapi {
   background-color: rgba(85, 82, 82, 0.76); 
   color: white;
+  border-radius: 10px;
   padding: 16px 10px;
   border: none;
   cursor: pointer;
   opacity: 0.8;
   transition: 0.3s;
 }
+

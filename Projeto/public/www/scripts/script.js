@@ -80,6 +80,7 @@ function listar() {
 }
 
 async function login() {
+    document.getElementById("html").style.overflowY = "scroll";
     const nome = document.getElementById("username").value;
     const senha = document.getElementById("password").value;
     const user = {
@@ -139,6 +140,7 @@ async function login() {
                 break;
             }
     }
+    document.getElementById("html").style.overflowY = "scroll";
 }
 
 async function registar() {

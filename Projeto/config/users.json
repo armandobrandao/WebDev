@@ -3,25 +3,5 @@
         "username": "admin",
         "password": "admin",
         "type": 1
-    },
-    {
-        "username": "teste",
-        "password": "teste",
-        "type": 0
-    },
-    {
-        "username": "amigo1",
-        "password": "amigoi123",
-        "type": 0
-    },
-    {
-        "username": "a",
-        "password": "aaaaa",
-        "type": 0
-    },
-    {
-        "username": "aaa",
-        "password": "12345",
-        "type": 0
     }
 ]

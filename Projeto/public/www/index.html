@@ -171,7 +171,7 @@
             </center>
             <br>
 
-            <div class="prodbar">
+            <div class="prodbar" id="prodbar">
                 <button id="procurar" class="procurar" onclick="procurar()">Procurar</button>
                 <button id="inserir" class="inserir" onclick="inserir()">Inserir</button>
                 <button id="eliminar" class="eliminar" onclick="eliminar()">Eliminar</button>
@@ -188,7 +188,7 @@
                         <img src="images/10.png" style="max-width:100%; height:auto;">
                     </div>
                     <br><br>
-                    <button id="addCart" onclick="addToCart('product1', 1)">Adicionar ao carrinho</button>
+                    <button id="addCart" class="addCart" onclick="addToCart('product1', 1)">Adicionar ao carrinho</button>
                     <p id="product1-price">499€</p>
                 </div>
 
@@ -201,7 +201,7 @@
                         <img src="images/2.png" style="max-width:100%; height:auto;">
                     </div>
                     <br><br>
-                    <button id="addCart" onclick="addToCart('product2', 1)">Adicionar ao carrinho</button>
+                    <button id="addCart" class="addCart" onclick="addToCart('product2', 1)">Adicionar ao carrinho</button>
                     <p id="product2-price">799€</p>
                 </div>
 
@@ -214,7 +214,7 @@
                         <img src="images/9.png" style="max-width:100%; height:auto;">
                     </div>
                     <br><br>
-                    <button id="addCart" onclick="addToCart('product3', 1)">Adicionar ao carrinho</button>
+                    <button id="addCart" class="addCart" onclick="addToCart('product3', 1)">Adicionar ao carrinho</button>
                     <p id="product3-price">399€</p>
                 </div>
 
@@ -227,7 +227,7 @@
                         <img src="images/5.png" style="max-width:100%; height:auto;">
                     </div>
                     <br><br>
-                    <button id="addCart" onclick="addToCart('product4', 1)">Adicionar ao carrinho</button>
+                    <button id="addCart" class="addCart" onclick="addToCart('product4', 1)">Adicionar ao carrinho</button>
                     <p id="product4-price">899€</p>
                 </div>
             </div>
@@ -274,50 +274,6 @@
             </div>
             <hr class="style-one">
         </div>
-        <!--
-                <br>
-                <h3>Armando Brandão</h3>
-                <img src="images/wheezer.jpg" style="max-width:100%; height:auto;">
-                <br><br>
-                <ul>
-                    <li><b>Idade: </b> 20</li>
-                    <li><b>Nacionalidade: </b> Portuguesa</li>
-                    <li><b>Localidade: </b> Oeiras, Barcarena</li>
-                    <li>Estudante de Engenharia Informática, na UAL</li>
-                </ul>
-                <br>
-                <h3>André Santos</h3>
-                <img src="images/batatinha.jpg" style="max-width:100%; height:auto;">
-                <br><br>
-                <ul>
-                    <li><b>Idade: </b> 20</li>
-                    <li><b>Nacionalidade: </b> Portuguesa</li>
-                    <li><b>Localidade: </b> Sintra, Cacém</li>
-                    <li>Estudante de Engenharia Informática, na UAL</li>
-                </ul>
-                <br>
-                <h3>Diogo Silva</h3>
-                <img src="images/jamal.jpg" style="max-width:100%; height:auto;">
-                <br><br>
-                <ul>
-                    <li><b>Idade: </b> 21</li>
-                    <li><b>Nacionalidade: </b> Portuguesa</li>
-                    <li><b>Localidade: </b> Lisboa, Lisboa</li>
-                    <li>Estudante de Engenharia Informática, na UAL</li>
-                </ul>
-                <br>
-                <h3>Vasco Bettencourt</h3>
-                <img src="images/vesqui.jpg" style="max-width:100%; height:auto;">
-                <br><br>
-                <ul>
-                    <li><b>Idade: </b> 20</li>
-                    <li><b>Nacionalidade: </b> Portuguesa</li>
-                    <li><b>Localidade: </b> Sintra, Massamá</li>
-                    <li>Estudante de Engenharia Informática, na UAL</li>
-                </ul>
-                <hr>
-            -->
-
 
         <div id="suporte" class="w3-justify w3-padding-64 imagebox2">
             <h1><b>Suporte</b></h1>
@@ -336,9 +292,9 @@
         </div>
     </div>
     <footer>
-        <div class="footer" class="w3-justify w3-padding-64">
-            <br>
+        <div class="footer">
             <p>Copyright © 2023 Monkey, Inc.</p>
+            <a id="github" href="https://github.com/armandobrandao/WebDev"><img src="images/25231.png" style="max-width:3%;height:auto;"></a>
         </div>
     </footer>
 </body>
