@@ -259,7 +259,7 @@ function addToCart(product, quantity) {
     if (!cart[product]) {
         cart[product] = {
             quantity: quantity,
-            price: document.getElementById(product + "-price").innerText
+            price: document.getElementById(product + "-price").innerText.substring(0, document.getElementById(product + "-price").innerText.length - 1)
         };
     } else {
         cart[product].quantity += quantity;
@@ -286,11 +286,11 @@ function updateCart() {
     let cartTotal = 0;
     for (let product in cart) {
         let tr = document.createElement("tr");
-        tr.innerHTML = `<td>${cart[product].name}</td><td>${cart[product].quantity}</td><td>${cart[product].price}</td><td>${cart[product].quantity * cart[product].price}</td><td><button onclick="removeFromCart('${product}')">Remove</button></td>`;
+        tr.innerHTML = `<td>${cart[product].name}</td><td>${cart[product].quantity}</td><td>${cart[product].price + "€"}</td><td>${cart[product].quantity * cart[product].price + "€"}</td><td><button onclick="removeFromCart('${product}')">Remove</button></td>`;
         cartItems.appendChild(tr);
         cartTotal += cart[product].quantity * cart[product].price;
     }
-    document.getElementById("cart-total").innerText = cartTotal;
+    document.getElementById("cart-total").innerText = cartTotal + "€";
     let checkoutButton = document.getElementById("checkout-button");
     if (Object.keys(cart).length === 0) {
         checkoutButton.disabled = true;
