@@ -23,7 +23,7 @@
             <a id="prodnav" href="#produtos">Produtos</a>
             <a href="#sobrenos">Sobre Nós</a>
             <a href="#suporte">Suporte</a>
-    
+
             <a id="cart" class="cart" onclick="showFormCart()">Carrinho</a>
             <a id="login" class="login" onclick="showFormLogin()">Login</a>
             <a id="registar" class="registar" onclick="showFormRegistar()">Registar</a>
@@ -32,13 +32,22 @@
             <a href="javascript:void(0);" class="icon" onclick="myFunction()"><i class="fa fa-bars"></i></a>
         </div>
     </nav>
-    <div id="content" class="content" style="text-align:center; padding: 10%;">
+    <div id="content" class="content" style="text-align:center; padding: 12%;">
         <header>
             <div id="home" class="w3-justify w3-padding-64">
                 <center>
                     <h1><b>Monkey Business</b></h1>
                     <img src="images/monkeylogo.png" style="max-width:100%; height:auto;">
+                    <p>Bem-vindo ao Monkey Business! Este site destina-se a fornecer a possibilidade de comprar
+                        telemóveis e disponibilizar serviços para os mesmos. <br>
+                        Abaixo irá encontrar os nossos serviços, um bocado sobre a nossa equipa de desenvolvimento e
+                        ainda uma secção de suporte! <br>
+                        Caso queira visualizar os produtos disponíveis, tem de se <a onclick="showFormRegistar()"
+                            style="cursor: pointer;"><b><u>registar</u></b></a> e posteriormente dar <a
+                            onclick="showFormLogin()" style="cursor: pointer;"><b><u>login</u></b></a>!</p>
+                    <p><b>A equipa do Monkey Business deseja-se uma boa estadia!</b></p>
                 </center>
+
             </div>
 
             <div id="formLogin" class="formLogin" style="text-align: left; overflow-y: hidden;">
@@ -61,36 +70,38 @@
                 <input type="password" name="regPassword" id="regPassword" placeholder="Insira a sua password" />
                 <button id="Registar" onclick="registar()">Enviar Registo</button>
                 <p id="pMsg"></p>
-            </div>            
+            </div>
 
-            <div id="formCart" class="formCart"  style="display:none">
+            <div id="formCart" class="formCart" style="display:none">
                 <div id="shopping-cart">
                     <h2>Carrinho de compras</h2>
                     <div class="closeForm" onclick="closeForm()">&times;</div>
                     <table>
-                      <thead>
-                        <tr>
-                          <th>Produtos</th>
-                          <th>Quantidade</th>
-                          <th>Preço</th>
-                          <th>Total</th>
-                          <th>Status</th>
-                        </tr>
-                      </thead>
-                      <tbody id="cart-items">
-                      </tbody>
-                      <tfoot>
-                        <tr>
-                          <td colspan="3">Total:</td>
-                          <td id="cart-total"></td>
-                        </tr>
-                      </tfoot>
+                        <thead>
+                            <tr>
+                                <th>Produtos</th>
+                                <th>Quantidade</th>
+                                <th>Preço</th>
+                                <th>Total</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody id="cart-items">
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="3">Total:</td>
+                                <td id="cart-total"></td>
+                            </tr>
+                        </tfoot>
                     </table>
                     <button id="checkout-button" disabled>Checkout</button>
                 </div>
             </div>
             <center>
-                <button id="btnapi"  onclick="api()">
+                <p>Através de uma API, pode-se manter atualizado nos casos de Covid-19 em Portugal!<br>
+                Pressione o botão para visualizar os casos positivos.</p>
+                <button id="btnapi" onclick="api()">
                     Casos positivos de Covid em Portugal
                 </button>
 
@@ -98,7 +109,6 @@
                     <h3 id="casosCovid"></h3>
                 </div>
             </center>
-            
         </header>
 
         <div id="servicos" class="w3-padding-64">
@@ -106,8 +116,6 @@
             <center>
                 <h1><b>Serviços</b></h1>
             </center>
-            
-
 
             <div class="servbar" id="servbar">
                 <button id="procurarS" class="procurarS" onclick="procurarServico()">Procurar</button>
@@ -115,7 +123,7 @@
                 <button id="eliminarS" class="eliminarS" onclick="eliminarServico()">Eliminar</button>
             </div>
             <br><br>
-            
+
             <div id="servList" class="row">
                 <div class="columnleft imagebox2">
                     <h3 id="service1-name"><b>Reparação de telemóvel</b></h3>
@@ -124,7 +132,8 @@
                         <img src="images/monkereparing.jpg" style="max-width:100%; height:auto;">
                     </div>
                     <br><br>
-                    <button id="addCart" class="addCart" onclick="addToCart('service1', 1)">Adicionar ao carrinho</button>
+                    <button id="addCart" class="addCart" onclick="addToCart('service1', 1)">Adicionar ao
+                        carrinho</button>
                     <p id="service1-price">49€</p>
                 </div>
 
@@ -135,70 +144,13 @@
                         <img src="images/monkeyMad.png" style="max-width:80%; height:auto;">
                     </div>
                     <br><br>
-                    <button id="addCart" class="addCart" onclick="addToCart('service2', 1)">Adicionar ao carrinho</button>
+                    <button id="addCart" class="addCart" onclick="addToCart('service2', 1)">Adicionar ao
+                        carrinho</button>
                     <p id="service2-price">19€</p>
                 </div>
-
             </div>
-            <!--
-                <div>
-                    <img src="images/monkeyonthephone.jpg" style="max-width:100%; height:auto;">
-                </div>
-            </center>
-            <br><br>
-            <p>A nossa empresa disponibiliza vários serviços relativos a telemóveis, tais como:</p>
-            <ul>
-                <li>Retoma de telemóveis.</li>
-                <li>Reparação de telemóveis.</li>
-                <li>Formatação de telemóveis.</li>
-                <li>Instalação de novas peças.</li>
-            </ul>
-            <p>Futuramente haverão novos serviços relativos a produtos informáticos, tais como instalação de sistemas
-                operativos e reparação de computadores.</p>
-            <hr class="style-one">
-            <h2><b>Preços</b></h2><br>
-            <div class="row">
-                <div class="imagebox2">
-                    <h4><b>Reparação e Formatação</b></h4>
-                    <p>Os preços de reparações variam consoante o telemóvel em questão, devido às diferentes peças e à
-                        acessibilidade ao interior do telemóvel.<br>
-                        Também se tem em conta a complexidade da estrutura do telemóvel que deseja reparar.
-                    </p>
-                    <ul>
-                        <li><b>Monkey Phone</b> - 75€ - 125€</li>
-                        <li><b>iMonkey</b> - 100€ - 200€</li>
-                        <li><b>MonkeyMi</b> - 50€ - 100€</li>
-                        <li><b>Monkia</b> - 50€ - 100€</li>
-                        <li><b>Monkeysung</b> - 100€ - 200€</li>
-                    </ul>
-                    <br>
-                </div>
-            </div>
-            <br><br>
-            <div class="imagebox2">
-                <h4><b>Peças</b></h4>
-                <p>
-                    Na Monkey Business, o cliente poderá encontrar as peças que necessita para a reparação do
-                    telemóvel.<br>
-                    Obviamente, o preço de cada peça depende do telemóvel que o cliente possui contudo, o price range
-                    pouco varia de telemóvel para telemóvel.
-                </p>
-                <ul>
-                    <li><b>Bateria: </b>30€ - 50€</li>
-                    <li><b>Ecrã: </b>50€ - 100€</li>
-                    <li><b>USB-C port: </b>10€ - 20€</li>
-                    <li><b>Headphone jack: </b>5€ - 10€</li>
-                    <li><b>Câmara traseira: </b>50€ - 100€</li>
-                    <li><b>Coluna: </b>20€ - 30€</li>
-                    <li><b>Fingerprint scanner: </b>100€ - 150€</li>
-                </ul>
-                <p>É também possível adquirir o serviço de instalação das novas peças, sendo 50€ independentemente do
-                    dispositivo.</p>
-                <p>Caso queira o nosso serviço de formatação do dispositivo, o preço é global, sendo 30€.</p>
-            </div>
-            -->
         </div>
-        
+
         <div id="produtos" class="w3-padding-64">
             <hr class="style-one">
             <center>
@@ -223,7 +175,8 @@
                         <img src="images/10.png" style="max-width:100%; height:auto;">
                     </div>
                     <br><br>
-                    <button id="addCart" class="addCart" onclick="addToCart('product1', 1)">Adicionar ao carrinho</button>
+                    <button id="addCart" class="addCart" onclick="addToCart('product1', 1)">Adicionar ao
+                        carrinho</button>
                     <p id="product1-price">499€</p>
                 </div>
 
@@ -236,20 +189,22 @@
                         <img src="images/2.png" style="max-width:100%; height:auto;">
                     </div>
                     <br><br>
-                    <button id="addCart" class="addCart" onclick="addToCart('product2', 1)">Adicionar ao carrinho</button>
+                    <button id="addCart" class="addCart" onclick="addToCart('product2', 1)">Adicionar ao
+                        carrinho</button>
                     <p id="product2-price">799€</p>
                 </div>
 
                 <div class="columnleft imagebox2">
                     <div class="product">
-                        <h3 id="product3-name"><b>MonkeyMi</b></h3>   
+                        <h3 id="product3-name"><b>MonkeyMi</b></h3>
                     </div>
                     <br>
                     <div class="zoom">
                         <img src="images/9.png" style="max-width:100%; height:auto;">
                     </div>
                     <br><br>
-                    <button id="addCart" class="addCart" onclick="addToCart('product3', 1)">Adicionar ao carrinho</button>
+                    <button id="addCart" class="addCart" onclick="addToCart('product3', 1)">Adicionar ao
+                        carrinho</button>
                     <p id="product3-price">399€</p>
                 </div>
 
@@ -262,7 +217,8 @@
                         <img src="images/5.png" style="max-width:100%; height:auto;">
                     </div>
                     <br><br>
-                    <button id="addCart" class="addCart" onclick="addToCart('product4', 1)">Adicionar ao carrinho</button>
+                    <button id="addCart" class="addCart" onclick="addToCart('product4', 1)">Adicionar ao
+                        carrinho</button>
                     <p id="product4-price">899€</p>
                 </div>
             </div>
@@ -272,6 +228,8 @@
             <hr class="style-one">
             <center>
                 <h1><b>Sobre Nós</b></h1>
+                <br>
+                <img src="images/monkeyonthephone.jpg" style="max-width:100%">
             </center>
             <p>
                 <br>Somos uma equipa de Desenvolvimento Web que se reuniu no âmbito de lutar contra o controlo da Apple
@@ -284,23 +242,22 @@
                 expectativas. <br>
                 A nossa equipa é formada por estudantes de Engenharia Informática que estão constantemente a evoluir os
                 seus conhecimentos de Desenvolvimento Web, o que nos proporciona uma versatilidade no que toca ao nosso
-                site. <br>
-                <br><b>Aqui pode encontrar os integrantes da nossa equipa de desenvolvimento da página:</b>
+                site. <br><br>
             </p>
-            <br>
-            <hr class="style-one">
+            <p><b>Aqui pode encontrar os integrantes da nossa equipa de desenvolvimento da página:</b></p>
 
             <div class="row">
+                <hr class="style-one">
                 <div class="column">
-                    <img src="images/batatinha.jpg" alt="andre" style="width:100%">
+                    <img src="images/vesqui.jpeg" alt="andre" style="width:100%">
                 </div>
 
                 <div class="column">
-                    <img src="images/wheezer.jpg" alt="Armando" style="width:100%">
+                    <img src="images/armando.jpg" alt="Armando" style="width:100%;">
                 </div>
 
                 <div class="column">
-                    <img src="images/jamal.jpg" alt="silva" style="width:100%">
+                    <img src="images/eu.png" alt="silva" style="width:100%">
                 </div>
 
                 <div class="column">
@@ -308,11 +265,50 @@
                 </div>
             </div>
             <hr class="style-one">
+            <div class="row" style="text-align:left;">
+                <div class="column">
+                    <p><b>Nome: </b>Vasco Bettencourt<br>
+                        <b>Nº de aluno: </b>30007590<br>
+                        <b>Localidade: </b>Massamá<br>
+                        <b>Cargo: </b>Desenvolvedor Backend/Frontend
+                    </p>
+                </div>
+                <div class="column">
+                    <p><b>Nome:</b> Armando Brandão<br>
+                        <b>Nº de aluno:</b> 30007196<br>
+                        <b>Localidade:</b> Barcarena<br>
+                        <b>Cargo: </b>Desenvolvedor Backend/Frontend
+                    </p>
+
+                </div>
+                <div class="column">
+                    <p><b>Nome:</b> Diogo Silva<br>
+                        <b>Nº de aluno:</b> 30007677<br>
+                        <b>Localidade:</b> Lisboa<br>
+                        <b>Cargo: </b>Desenvolvedor Backend/Frontend
+                    </p>
+                </div>
+                <div class="column">
+                    <p><b>Nome: </b>André Santos<br>
+                        <b>Nº de aluno:</b>30007679<br>
+                        <b>Localidade:</b><br>
+                        <b>Cargo: </b>Desenvolvedor Backend/Frontend
+                    </p>
+                </div>
+            </div>
+            <hr class="style-one">
         </div>
 
-        <div id="suporte" class="w3-justify w3-padding-64 imagebox2">
-            <h1><b>Suporte</b></h1>
-            <p>Entre em contacto conosco em caso de dúvidas ou de problemas relevantes. <br>
+        <div id="suporte" class="w3-justify w3-padding-64">
+            <hr class="style-one">
+            <center>
+                <h1><b>Suporte</b></h1>
+                <br>
+                <img src="images/monkeyThinking.jpg" style="max-width:100%">
+                <br>
+            </center>
+
+            <p><br>Entre em contacto conosco em caso de dúvidas ou de problemas relevantes. <br>
                 Envie-nos um email ou visite-nos. <br>
                 Estamos abertos todos os dias, das 9h59 às 19h59. <br>
                 Poderá enviar-nos email até às 23h59. Voltaremos a estar disponíveis a partir das 9h59.
