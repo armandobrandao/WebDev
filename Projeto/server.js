@@ -68,13 +68,11 @@ function existeUser(nome) {
     return false;
 }
 
-// Route to get all posts
 app.get("/getProds", cors(), (req, res) => {
     result = db;
     res.send(result);
 });
 
-// Route to get one post
 app.get("/prod/:idProd", (req, res) => {
     const id = req.params.idProd;
     result = "";
@@ -88,7 +86,6 @@ app.get("/prod/:idProd", (req, res) => {
     res.send(result);
 });
 
-// Route for creating the post
 app.post("/createProd", (req, res) => {
     newID = db.length + 1;
     const nome = req.body.nome;
@@ -108,8 +105,6 @@ app.post("/createProd", (req, res) => {
     res.send(result);
 });
 
-
-// Route to delete a post
 app.delete("/deleteProd/:idProd", (req, res) => {
     const id = req.params.idProd;
     let result = null;
@@ -123,7 +118,7 @@ app.delete("/deleteProd/:idProd", (req, res) => {
     }
     db = [];
     for (let i = 0; i < dbAux.length; i++) {
-        db.push(dbAux[i]); // copia os dados
+        db.push(dbAux[i]); 
     }
     escreve("./config/products.json", db);
     console.log(result);
@@ -213,13 +208,11 @@ const options = {
     }
 };
 
-// Route to get all posts
 app.get("/getServs", cors(), (req, res) => {
     result = servs;
     res.send(result);
 });
 
-// Route to get one post
 app.get("/serv/:idServ", (req, res) => {
     const id = req.params.idServ;
     result = "";
@@ -233,7 +226,6 @@ app.get("/serv/:idServ", (req, res) => {
     res.send(result);
 });
 
-// Route for creating the post
 app.post("/createServ", (req, res) => {
     newID = servs.length + 1;
     const nome = req.body.nome;
@@ -253,7 +245,6 @@ app.post("/createServ", (req, res) => {
     res.send(result);
 });
 
-// Route to delete a post
 app.delete("/deleteServ/:idServ", (req, res) => {
     const id = req.params.idServ;
     let result = null;
@@ -267,7 +258,7 @@ app.delete("/deleteServ/:idServ", (req, res) => {
     }
     servs = [];
     for (let i = 0; i < servAux.length; i++) {
-        servs.push(servAux[i]); // copia os dados
+        servs.push(servAux[i]);
     }
     escreve("./config/services.json", servs);
     console.log(result);

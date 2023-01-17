@@ -196,19 +196,16 @@ async function registar() {
     switch (resposta.status) {
         case 409:
             {
-                // Utilizador já existe
                 document.getElementById("pMsg").innerHTML = json.msg;
                 break;
             }
         case 400:
             {
-                // Password inaceitável
                 document.getElementById("pMsg").innerHTML = json.msg;
                 break;
             }
         case 201:
             {
-                // Utilizador registado
                 document.getElementById("pMsg").innerHTML = json.msg;
                 break;
             }
@@ -343,10 +340,8 @@ function close() {
     document.getElementById("formLogin").style.display = "none";
 }
 
-// Initialize an empty cart
 let cart = {};
 
-// Add item to cart
 function addToCart(product, quantity) {
     if (!cart[product]) {
         cart[product] = {
@@ -361,7 +356,6 @@ function addToCart(product, quantity) {
     setCookie("shopping_cart", JSON.stringify(cart), 7);
 }
 
-// Remove item from cart
 function removeFromCart(product) {
     if (cart[product]) {
         cart[product].quantity--;
@@ -373,14 +367,12 @@ function removeFromCart(product) {
     }
 }
 
-// Get a cookie by name
 function getCookie(name) {
     var value = "; " + document.cookie;
     var parts = value.split("; " + name + "=");
     if (parts.length == 2) return parts.pop().split(";").shift();
 }
 
-// Save a cookie
 function setCookie(name, value, days) {
     var expires = "";
     if (days) {
@@ -391,14 +383,12 @@ function setCookie(name, value, days) {
     document.cookie = name + "=" + (value || "") + expires + "; path=/";
 }
 
-// Retrieve the shopping cart from cookies
 var cookieCart = getCookie("shopping_cart");
 if (cookieCart != "") {
     cart = JSON.parse(cookieCart);
     updateCart();
 }
 
-// Update the cart UI
 function updateCart() {
     let cartItems = document.getElementById("cart-items");
     cartItems.innerHTML = "";
@@ -422,15 +412,14 @@ async function api(){
     fetch('/api')
   .then(response => response.text())
   .then(dados => {
-    console.log(dados)
+
 
     dados = formatarDados(dados);
-    console.log('\n\n')
-    console.log(dados)
+
     document.getElementById("casosCovid").innerHTML = "O número de casos de covid ativos em Portugal é " + dados;
   })
   .catch(error => {
-    console.error(error); // exibe qualquer erro ocorrido durante a chamada à API
+    console.error(error); 
   });
 }
 
