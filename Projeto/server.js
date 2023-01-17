@@ -68,13 +68,15 @@ function existeUser(nome) {
     return false;
 }
 
+// Route to get all posts
 app.get("/getProds", cors(), (req, res) => {
     result = db;
     res.send(result);
 });
 
-app.get("/:id", (req, res) => {
-    const id = req.params.id;
+// Route to get one post
+app.get("/prod/:idProd", (req, res) => {
+    const id = req.params.idProd;
     result = "";
     for (var prod of db) {
         if (prod.id.toString() === id) {
@@ -86,7 +88,8 @@ app.get("/:id", (req, res) => {
     res.send(result);
 });
 
-app.post("/create", (req, res) => {
+// Route for creating the post
+app.post("/createProd", (req, res) => {
     newID = db.length + 1;
     const nome = req.body.nome;
     const url = req.body.url;
@@ -105,8 +108,10 @@ app.post("/create", (req, res) => {
     res.send(result);
 });
 
-app.delete("/delete/:id", (req, res) => {
-    const id = req.params.id;
+
+// Route to delete a post
+app.delete("/deleteProd/:idProd", (req, res) => {
+    const id = req.params.idProd;
     let result = null;
     let dbAux = [];
     for (prod of db) {
@@ -118,12 +123,13 @@ app.delete("/delete/:id", (req, res) => {
     }
     db = [];
     for (let i = 0; i < dbAux.length; i++) {
-        db.push(dbAux[i]);
+        db.push(dbAux[i]); // copia os dados
     }
     escreve("./config/products.json", db);
     console.log(result);
     res.send(result);
 });
+
 
 app.post("/login", async (req, res) => {
     const nome = req.body.username;
@@ -207,13 +213,15 @@ const options = {
     }
 };
 
+// Route to get all posts
 app.get("/getServs", cors(), (req, res) => {
     result = servs;
     res.send(result);
 });
 
-app.get("/:idServ", (req, res) => {
-    const id = req.params.id;
+// Route to get one post
+app.get("/serv/:idServ", (req, res) => {
+    const id = req.params.idServ;
     result = "";
     for (var serv of servs) {
         if (serv.id.toString() === id) {
@@ -225,6 +233,7 @@ app.get("/:idServ", (req, res) => {
     res.send(result);
 });
 
+// Route for creating the post
 app.post("/createServ", (req, res) => {
     newID = servs.length + 1;
     const nome = req.body.nome;
@@ -244,8 +253,9 @@ app.post("/createServ", (req, res) => {
     res.send(result);
 });
 
+// Route to delete a post
 app.delete("/deleteServ/:idServ", (req, res) => {
-    const id = req.params.id;
+    const id = req.params.idServ;
     let result = null;
     let servAux = [];
     for (serv of servs) {
@@ -257,7 +267,7 @@ app.delete("/deleteServ/:idServ", (req, res) => {
     }
     servs = [];
     for (let i = 0; i < servAux.length; i++) {
-        servs.push(servAux[i]); 
+        servs.push(servAux[i]); // copia os dados
     }
     escreve("./config/services.json", servs);
     console.log(result);
