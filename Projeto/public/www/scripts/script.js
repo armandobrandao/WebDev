@@ -125,6 +125,7 @@ async function login() {
             {
                 if (user.username == "admin") {
                     updateCart()
+                    document.getElementById("servbar").style.display = "block";
                     document.getElementById("produtos").style.display = "block";
                     document.getElementById("prodnav").style.display = "block";
                     document.getElementById("registar").style.display = "none";
@@ -132,8 +133,11 @@ async function login() {
                     document.getElementById("formLogin").style.display = "none"; 
                     document.getElementById("logout").style.display = "inline"; 
                     document.getElementById("inserir").style.display = "inline";
+                    document.getElementById("inserirS").style.display = "inline";
                     document.getElementById("eliminar").style.display = "inline";
+                    document.getElementById("eliminarS").style.display = "inline";
                     document.getElementById("procurar").style.display = "inline";
+                    document.getElementById("procurarS").style.display = "inline";
                     document.getElementById("cart").style.display = "block";
                     document.getElementById("legenda").innerText = "Autenticar";
                     localStorage.setItem("token", json.token);
@@ -143,13 +147,17 @@ async function login() {
                     updateCart()
                     document.getElementById("produtos").style.display = "block";
                     document.getElementById("prodnav").style.display = "block";
+                    document.getElementById("servbar").style.display = "block";
                     document.getElementById("registar").style.display = "none";
                     document.getElementById("login").style.display = "none";
                     document.getElementById("formLogin").style.display = "none"; 
                     document.getElementById("logout").style.display = "inline"; 
                     document.getElementById("inserir").style.display = "none";
+                    document.getElementById("inserirS").style.display = "none";
                     document.getElementById("eliminar").style.display = "none";
+                    document.getElementById("eliminarS").style.display = "none";
                     document.getElementById("procurar").style.display = "inline";
+                    document.getElementById("procurarS").style.display = "inline";
                     document.getElementById("cart").style.display = "block";
                     document.getElementById("legenda").innerText = "Autenticar";
                     localStorage.setItem("token", json.token);
@@ -218,6 +226,7 @@ function myFunction() {
 
 function logout() {
     console.log("Logout");
+    document.getElementById("servbar").style.display = "none";
     document.getElementById("logout").style.display = "none";
     document.getElementById("login").style.display = "inline";
     document.getElementById("registar").style.display = "inline";
@@ -269,7 +278,7 @@ function eliminar() {
 }
 
 function eliminarServico() {
-    let id = prompt("ID do produto");
+    let id = prompt("ID do serviço");
     fetch('https://localhost:3002/deleteServ/' + id, {
         method: "DELETE",
         headers: { "Content-type": "application/json;charset=UTF-8" },
@@ -280,7 +289,7 @@ function eliminarServico() {
 function procurar() {
     let id = prompt("ID do produto");
     document.getElementById("prodList").innerHTML = "";
-    fetch('https://localhost:3002/' + id, {
+    fetch('https://localhost:3002/prod/' + id, {
         method: "GET",
         headers: { "Content-type": "application/json;charset=UTF-8" },
     })
@@ -304,9 +313,9 @@ function procurar() {
 }
 
 function procurarServico() {
-    let id = prompt("ID do produto");
+    let id = prompt("ID do serviço");
     document.getElementById("servList").innerHTML = "";
-    fetch('https://localhost:3002/' + id, {
+    fetch('https://localhost:3002/serv/' + id, {
         method: "GET",
         headers: { "Content-type": "application/json;charset=UTF-8" },
     })

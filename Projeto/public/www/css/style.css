@@ -3,6 +3,7 @@
 #formLogin {display:none}
 #produtos {display:none}
 #prodnav {display:none}
+#servbar {display:none}
 
 html {
   scroll-behavior: smooth;
@@ -250,7 +251,16 @@ hr.style-one {
   margin: 0 auto;
 }
 
-.procurar {
+.servbar {
+  background-color: #1d1d1d;
+  width: 60%;
+  transition: 0.3s;
+  color: white;
+  border-radius: 10px;
+  margin: 0 auto;
+}
+
+.procurar, .procurarS {
   position: relative;
   background-color: #1d1d1d;
   color: white;
@@ -263,7 +273,7 @@ hr.style-one {
 
 }
 
-.inserir {
+.inserir, .inserirS {
   position: relative;
   background-color: #1d1d1d;
   color: white;
@@ -275,7 +285,7 @@ hr.style-one {
   transition: 0.3s;
 }
 
-.eliminar {
+.eliminar, .eliminarS {
   position: relative;
   background-color: #1d1d1d;
   color: white;
@@ -310,6 +320,7 @@ hr.style-one {
 
 .formLogin {
   position:fixed;
+  z-index: 1;
   top:50%;
   left:50%;
   transform:translate(-50%, -50%);
