@@ -97,6 +97,7 @@ async function login() {
         case 201:
             {
                 if (user.username == "admin" ) {
+                    updateCart()
                     document.getElementById("produtos").style.display = "block";
                     document.getElementById("prodnav").style.display = "block";
                     document.getElementById("registar").style.display = "none";
@@ -112,6 +113,7 @@ async function login() {
                     break;
                 }
                 else {
+                    updateCart()
                     document.getElementById("produtos").style.display = "block";
                     document.getElementById("prodnav").style.display = "block";
                     document.getElementById("registar").style.display = "none";
@@ -268,6 +270,7 @@ function addToCart(product, quantity) {
     }
     cart[product].name = document.getElementById(product + "-name").innerText;
     updateCart();
+    setCookie("shopping_cart", JSON.stringify(cart), 7);
 }
 
 // Remove item from cart
@@ -278,7 +281,33 @@ function removeFromCart(product) {
             delete cart[product];
         }
         updateCart();
+        setCookie("shopping_cart", JSON.stringify(cart), 7);
     }
+}
+
+// Get a cookie by name
+function getCookie(name) {
+    var value = "; " + document.cookie;
+    var parts = value.split("; " + name + "=");
+    if (parts.length == 2) return parts.pop().split(";").shift();
+}
+
+// Save a cookie
+function setCookie(name, value, days) {
+    var expires = "";
+    if (days) {
+        var date = new Date();
+        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+        expires = "; expires=" + date.toUTCString();
+    }
+    document.cookie = name + "=" + (value || "") + expires + "; path=/";
+}
+
+// Retrieve the shopping cart from cookies
+var cookieCart = getCookie("shopping_cart");
+if (cookieCart != "") {
+    cart = JSON.parse(cookieCart);
+    updateCart();
 }
 
 // Update the cart UI
