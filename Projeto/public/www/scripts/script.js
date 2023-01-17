@@ -10,11 +10,15 @@ async function makeRequest(url, options) {
 }
 
 function showFormLogin() {
+    document.getElementById("html").style.overflowY = "hidden";
     document.getElementById("formLogin").style.display = "block";
+    document.getElementById("formRegistar").style.display = "none";
 }
 
 function showFormRegistar() {
+    document.getElementById("html").style.overflowY = "hidden";
     document.getElementById("formRegistar").style.display = "block";
+    document.getElementById("formLogin").style.display = "none"; 
 }
 
 function showFormCart() {
@@ -22,6 +26,7 @@ function showFormCart() {
 }
 
 function closeForm() {
+    document.getElementById("html").style.overflowY = "scroll";
     document.getElementById("formLogin").style.display = "none";
     document.getElementById("formRegistar").style.display = "none";
     document.getElementById("formCart").style.display = "none";

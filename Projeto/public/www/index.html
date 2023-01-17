@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html id="html" lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -32,7 +32,7 @@
             <a href="javascript:void(0);" class="icon" onclick="myFunction()"><i class="fa fa-bars"></i></a>
         </div>
     </nav>
-    <div class="content" style="text-align:center; padding: 10%;">
+    <div id="content" class="content" style="text-align:center; padding: 10%;">
         <header>
             <div id="home" class="w3-justify w3-padding-64">
                 <center>
@@ -41,7 +41,7 @@
                 </center>
             </div>
 
-            <div id="formLogin" class="formLogin" style="display:none">
+            <div id="formLogin" class="formLogin" style="text-align: left; overflow-y: hidden;">
                 <h2>Login</h2>
                 <div class="closeForm" onclick="closeForm()">&times;</div>
                 <label for="username">Username:</label>
@@ -52,7 +52,7 @@
                 <p id="cMsg"></p>
             </div>
 
-            <div id="formRegistar" class="formLogin" style="display:none">
+            <div id="formRegistar" class="formLogin" style="display: none; text-align: left;">
                 <h2>Registar</h2>
                 <div class="closeForm" onclick="closeForm()">&times;</div>
                 <label for="regUsername">Username:</label>
@@ -329,13 +329,13 @@
                 Monkey Land
             </address>
         </div>
-        <footer>
-            <div class="footer">
-                <br>
-                <p>Copyright © 2023 Monkey, Inc.</p>
-            </div>
-        </footer>
     </div>
+    <footer>
+        <div class="footer" class="w3-justify w3-padding-64">
+            <br>
+            <p>Copyright © 2023 Monkey, Inc.</p>
+        </div>
+    </footer>
 </body>
 
 </html>
