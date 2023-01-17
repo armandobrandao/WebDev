@@ -226,6 +226,7 @@ function myFunction() {
 
 function logout() {
     console.log("Logout");
+    document.getElementById("formCart").style.display = "none";
     document.getElementById("servbar").style.display = "none";
     document.getElementById("logout").style.display = "none";
     document.getElementById("login").style.display = "inline";
