@@ -121,7 +121,7 @@ async function login() {
     switch (resposta.status) {
         case 201:
             {
-                if (user.username == "admin" ) {
+                if (user.username == "admin") {
                     updateCart()
                     document.getElementById("produtos").style.display = "block";
                     document.getElementById("prodnav").style.display = "block";

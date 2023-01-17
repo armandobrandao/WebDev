@@ -6,6 +6,7 @@ const cors = require("cors");
 const jwt = require('jsonwebtoken');
 const app = express();
 const bcrypt = require("bcrypt");
+const request = require('request');
 
 bodyParser = require('body-parser');
 
@@ -54,7 +55,7 @@ function escreve(fich, db) {
         if (err) {
             console.log(`Error writing file: ${err}`)
         } else {
-            console.log('Escreveu no ficheiro ' + fich); // Sucesso
+            console.log('Escreveu no ficheiro ' + fich); 
         }
     })
 }
@@ -67,13 +68,11 @@ function existeUser(nome) {
     return false;
 }
 
-// Route to get all posts
 app.get("/getProds", cors(), (req, res) => {
     result = db;
     res.send(result);
 });
 
-// Route to get one post
 app.get("/:id", (req, res) => {
     const id = req.params.id;
     result = "";
@@ -87,7 +86,6 @@ app.get("/:id", (req, res) => {
     res.send(result);
 });
 
-// Route for creating the post
 app.post("/create", (req, res) => {
     newID = db.length + 1;
     const nome = req.body.nome;
@@ -107,8 +105,6 @@ app.post("/create", (req, res) => {
     res.send(result);
 });
 
-// Route to delete a post
-
 app.delete("/delete/:id", (req, res) => {
     const id = req.params.id;
     let result = null;
@@ -122,7 +118,7 @@ app.delete("/delete/:id", (req, res) => {
     }
     db = [];
     for (let i = 0; i < dbAux.length; i++) {
-        db.push(dbAux[i]); // copia os dados
+        db.push(dbAux[i]);
     }
     escreve("./config/products.json", db);
     console.log(result);
@@ -144,10 +140,10 @@ app.post("/login", async (req, res) => {
             } else {
                 return res.status(401).json({ msg: "Invalid Password!" })
             }
-    }} catch {
+        }
+    } catch {
         res.status(500).send();
     }
-
     return res.status(404).json({ msg: "User not found!" })
 });
 
@@ -158,7 +154,7 @@ function authenticateToken(req, res, next) {
     const token = authHeader && authHeader.split(" ")[1]
     if (token == null) return res.sendStatus(401)
 
-    jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, user) => {
+    jwt.verify(token, process.env.SECRET, (err, user) => {
         if (err) return res.sendStatus(403)
         req.user = user
         next()
@@ -200,16 +196,6 @@ app.post("/registar", async (req, res) => {
     }
 });
 
-function validarToken(token) {
-    try {
-        return jwt.verify(token, process.env.SECRET);
-    } catch (err) {
-        return false;
-    }
-}
-
-const request = require('request');
-
 const options = {
     method: 'GET',
     url: 'https://covid-193.p.rapidapi.com/statistics',
@@ -221,13 +207,11 @@ const options = {
     }
 };
 
-// Route to get all posts
 app.get("/getServs", cors(), (req, res) => {
     result = servs;
     res.send(result);
 });
 
-// Route to get one post
 app.get("/:idServ", (req, res) => {
     const id = req.params.id;
     result = "";
@@ -241,7 +225,6 @@ app.get("/:idServ", (req, res) => {
     res.send(result);
 });
 
-// Route for creating the post
 app.post("/createServ", (req, res) => {
     newID = servs.length + 1;
     const nome = req.body.nome;
@@ -261,7 +244,6 @@ app.post("/createServ", (req, res) => {
     res.send(result);
 });
 
-// Route to delete a post
 app.delete("/deleteServ/:idServ", (req, res) => {
     const id = req.params.id;
     let result = null;
@@ -275,7 +257,7 @@ app.delete("/deleteServ/:idServ", (req, res) => {
     }
     servs = [];
     for (let i = 0; i < servAux.length; i++) {
-        servs.push(servAux[i]); // copia os dados
+        servs.push(servAux[i]); 
     }
     escreve("./config/services.json", servs);
     console.log(result);
