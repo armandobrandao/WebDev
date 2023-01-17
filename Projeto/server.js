@@ -30,6 +30,13 @@ app.use((req, res, next) => {
     req.secure ? next() : res.redirect('https://' + req.headers.host + req.url)
 })
 
+app.get('/api', (req, res) => {
+    request(options, function (error, response, body) {
+        if (error) throw new Error(error);
+        res.send(body)
+    });
+});
+
 app.use(express.static('public/www'));
 sslServer.listen(PORT, () => {
     console.log(`Server is running on ${PORT}`);
@@ -189,3 +196,18 @@ function validarToken(token) {
         return false;
     }
 }
+
+const request = require('request');
+
+const options = {
+  method: 'GET',
+  url: 'https://covid-193.p.rapidapi.com/statistics',
+  qs: {country: 'portugal'},
+  headers: {
+    'X-RapidAPI-Key': '05f70cb088mshc5761916a74abaap1de996jsnabbb04367815',
+    'X-RapidAPI-Host': 'covid-193.p.rapidapi.com',
+    useQueryString: true
+  }
+};
+
+

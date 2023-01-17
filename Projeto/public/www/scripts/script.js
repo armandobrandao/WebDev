@@ -298,3 +298,28 @@ function updateCart() {
         checkoutButton.disabled = false;
     }
 }
+
+async function api(){
+    fetch('/api')
+  .then(response => response.text())
+  .then(dados => {
+    console.log(dados)
+
+    dados = formatarDados(dados);
+    console.log('\n\n')
+    console.log(dados)
+  })
+  .catch(error => {
+    console.error(error); // exibe qualquer erro ocorrido durante a chamada à API
+  });
+}
+
+function formatarDados(dados) {
+    let resultado = '';
+
+    resultado = JSON.stringify(dados)
+    resultado2 = resultado.split('\\')
+    resultado3 = resultado2[32].replace(/:/i, "").replace(/"/i, "").replace(/,/i, "")
+
+    return resultado3;
+  }
