@@ -380,6 +380,7 @@ async function api(){
     dados = formatarDados(dados);
     console.log('\n\n')
     console.log(dados)
+    document.getElementById("casosCovid").innerHTML = "O número de casos de covid ativos em Portugal é " + dados;
   })
   .catch(error => {
     console.error(error); // exibe qualquer erro ocorrido durante a chamada à API
@@ -390,8 +391,8 @@ function formatarDados(dados) {
     let resultado = '';
 
     resultado = JSON.stringify(dados)
-    resultado2 = resultado.split('\\')
-    resultado3 = resultado2[32].replace(/:/i, "").replace(/"/i, "").replace(/,/i, "")
+    resultado = resultado.split('\\')
+    resultado = resultado[32].replace(/:/i, "").replace(/"/i, "").replace(/,/i, "")
 
-    return resultado3;
+    return resultado;
   }
