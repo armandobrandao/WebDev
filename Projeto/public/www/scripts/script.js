@@ -74,6 +74,36 @@ function listar() {
     return;
 }
 
+<<<<<<< Updated upstream
+=======
+function listarServico() {
+    fetch('https://localhost:3002/getServs', {
+        method: "GET",
+        headers: { "Content-type": "application/json;charset=UTF-8" }
+    })
+    .then(response => response.json())
+    .then(json => {
+        let lista = "";
+        for (serv of json) {
+            lista += '<div class="columnleft imagebox2">';
+            lista += '<div class="service">';
+            lista += '<h3 id="service' + serv.id + '-name"><b>' + serv.nome + '</b></h3>';
+            lista += '</div>';
+            lista += '<br>';
+            lista += '<div class="zoom">';
+            lista += '<img src="' + serv.url + '"style="max-width:100%; height:auto;">';
+            lista += '</div>';
+            lista += '<br><br>';
+            lista += '<button id="addCart" onclick="addToCart(`service' + serv.id + '`, 1)"> Adicionar ao carrinho</button>';
+            lista += '<p id="service' + serv.id + '-price">' + serv.preco + '</p>';
+            lista += '</div>';
+        }
+        document.getElementById("servList").innerHTML = lista;
+    });
+    return;
+}
+
+>>>>>>> Stashed changes
 async function login() {
     const nome = document.getElementById("username").value;
     const senha = document.getElementById("password").value;
@@ -199,7 +229,7 @@ function inserir() {
     prod.nome = nome;
     prod.url = url;
     prod.preco = preco;
-    fetch('https://localhost:3002/create', {
+    fetch('https://localhost:3002/createProd', {
         method: "POST",
         headers: { "Content-type": "application/json;charset=UTF-8" },
         body: JSON.stringify(prod)
@@ -207,13 +237,41 @@ function inserir() {
     listar();
 }
 
+<<<<<<< Updated upstream
+=======
+function inserirServico() {
+    let nome = prompt("Nome do serviço:");
+    let url = prompt("URL da imagem do serviço:");
+    let preco = prompt("Preço do serviço:");
+    let serv = new Object();
+    serv.nome = nome;
+    serv.url = url;
+    serv.preco = preco;
+    fetch('https://localhost:3002/createServ', {
+        method: "POST",
+        headers: { "Content-type": "application/json;charset=UTF-8" },
+        body: JSON.stringify(serv)
+    })
+    listarServico();
+}
+
+>>>>>>> Stashed changes
 function eliminar() {
     let id = prompt("ID do produto");
-    fetch('https://localhost:3002/delete/' + id, {
+    fetch('https://localhost:3002/deleteProd/' + id, {
         method: "DELETE",
         headers: { "Content-type": "application/json;charset=UTF-8" },
     })
     listar();
+}
+
+function eliminarServico() {
+    let id = prompt("ID do produto");
+    fetch('https://localhost:3002/deleteServ/' + id, {
+        method: "DELETE",
+        headers: { "Content-type": "application/json;charset=UTF-8" },
+    })
+    listarServico();
 }
 
 function procurar() {
@@ -239,6 +297,32 @@ function procurar() {
         lista += '<p id="product' + json.id + '-price">' + json.preco + '</p>';
         lista += '</div>';
         document.getElementById("prodList").innerHTML = lista;
+    });
+}
+
+function procurarServico() {
+    let id = prompt("ID do produto");
+    document.getElementById("servList").innerHTML = "";
+    fetch('https://localhost:3002/' + id, {
+        method: "GET",
+        headers: { "Content-type": "application/json;charset=UTF-8" },
+    })
+    .then(response => response.json())
+    .then(json => {
+        let lista = "";
+        lista += '<div class="columnleft imagebox2" style="margin: 0 auto">';
+        lista += '<div class="service">';
+        lista += '<h3 id="service' + json.id + '-name"><b>' + json.nome + '</b></h3>';
+        lista += '</div>';
+        lista += '<br><br>';
+        lista += '<div class="zoom">';
+        lista += '<img src="' + json.url + '"style="max-width:100%; height:auto;">';
+        lista += '</div>';
+        lista += '<br><br>';
+        lista += '<button id="addCart" onclick="addToCart(`service' + json.id + '`, 1)"> Adicionar ao carrinho</button>';
+        lista += '<p id="service' + json.id + '-price">' + json.preco + '</p>';
+        lista += '</div>';
+        document.getElementById("servList").innerHTML = lista;
     });
 }
 

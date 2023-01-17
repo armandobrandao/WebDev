@@ -65,8 +65,8 @@ app.get("/getProds", cors(), (req, res) => {
 });
 
 // Route to get one post
-app.get("/:id", (req, res) => {
-    const id = req.params.id;
+app.get("/prod/:idProd", (req, res) => {
+    const id = req.params.idProd;
     result = "";
     for (var prod of db) {
         if (prod.id.toString() === id) {
@@ -78,8 +78,10 @@ app.get("/:id", (req, res) => {
     res.send(result);
 });
 
+
+
 // Route for creating the post
-app.post("/create", (req, res) => {
+app.post("/createProd", (req, res) => {
     newID = db.length + 1;
     const nome = req.body.nome;
     const url = req.body.url;
@@ -100,8 +102,8 @@ app.post("/create", (req, res) => {
 
 // Route to delete a post
 
-app.delete("/delete/:id", (req, res) => {
-    const id = req.params.id;
+app.delete("/deleteProd/:idProd", (req, res) => {
+    const id = req.params.idProd;
     let result = null;
     let dbAux = [];
     for (prod of db) {
@@ -116,6 +118,67 @@ app.delete("/delete/:id", (req, res) => {
         db.push(dbAux[i]); // copia os dados
     }
     escreve("./config/products.json", db);
+    console.log(result);
+    res.send(result);
+});
+
+// Route to get all posts
+app.get("/getServs", cors(), (req, res) => {
+    result = servs;
+    res.send(result);
+});
+
+// Route to get one post
+app.get("/serv/:idServ", (req, res) => {
+    const id = req.params.idServ;
+    result = "";
+    for (var serv of servs) {
+        if (serv.id.toString() === id) {
+            console.log(`Service id: ${serv.id}`);
+            result = serv;
+            break;
+        }
+    }
+    res.send(result);
+});
+
+// Route for creating the post
+app.post("/createServ", (req, res) => {
+    newID = servs.length + 1;
+    const nome = req.body.nome;
+    const url = req.body.url;
+    const preco = req.body.preco;
+    console.log(req.body);
+    console.log(newID, nome, url, preco);
+    const newService = {
+        "id": newID,
+        "nome": nome,
+        "url": url,
+        "preco": preco + "€"
+    }
+    servs.push(newService);
+    escreve("./config/services.json", servs);
+    result = newService;
+    res.send(result);
+});
+
+// Route to delete a post
+app.delete("/deleteServ/:idServ", (req, res) => {
+    const id = req.params.idServ;
+    let result = null;
+    let servAux = [];
+    for (serv of servs) {
+        if (serv.id.toString() === id) {
+            result = serv;
+        } else {
+            servAux.push(serv);
+        }
+    }
+    servs = [];
+    for (let i = 0; i < servAux.length; i++) {
+        servs.push(servAux[i]); // copia os dados
+    }
+    escreve("./config/services.json", servs);
     console.log(result);
     res.send(result);
 });
@@ -187,4 +250,21 @@ function validarToken(token) {
     } catch (err) {
         return false;
     }
+<<<<<<< Updated upstream
 }
+=======
+}
+
+const request = require('request');
+
+const options = {
+  method: 'GET',
+  url: 'https://covid-193.p.rapidapi.com/statistics',
+  qs: {country: 'portugal'},
+  headers: {
+    'X-RapidAPI-Key': '05f70cb088mshc5761916a74abaap1de996jsnabbb04367815',
+    'X-RapidAPI-Host': 'covid-193.p.rapidapi.com',
+    useQueryString: true
+  }
+};
+>>>>>>> Stashed changes
